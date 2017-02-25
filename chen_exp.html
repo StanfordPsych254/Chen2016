@@ -1,0 +1,371 @@
+<!-- ## Introduction -->
+<!-- 
+Mika Asaba
+
+This is code for a replication of Chen et al.'s study, Beliefs About the Causal Structure of the Self-Concept Determine Which Changes Disrupt Personal Identity. 
+ -->
+
+
+<!-- ## Code -->
+
+<html>
+<head>
+	<title>Chen-Replication</title>
+	<!-- Include the [jQuery library](http://jquery.com/), which helps you manipulate HTML elements from JS. -->
+	<script src="jquery-1.11.2.min.js"></script>
+	
+	<!-- Include my library, [mmturkey][mmturkey], which manages submitting data to Mechanical Turk. This defines a global object, <code>turk</code>, and attaches five properties to it, <code>hitId</code>, <code>assignmentId</code>, <code>workerId</code>, <code>previewMode</code>, and <code>turkSubmitTo</code>. It also provides a single method, <code>submit(data)</code>, which you use to submit data to Turk. If no submission URL has been provided (because, e.g. you're testing your code outside of the Turk environment), <code>submit</code> displays what would have been submitted (without, obviously, any Turk-specific variables like <code>workerId</code> and <code>assignmentId</code>).  -->
+	<!-- [mmturkey]: http://github.com/longouyang/mmturkey -->
+	<script src="mmturkey-0.6.js"></script>
+	
+	<!-- Include the cascading style sheet (CSS), which lets us separate style from content. This stylesheet is important because it defines the notion of a **slide** and also makes things look nicer, which subjects appreciate. It's worth looking at the [source code](style.html). -->
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+<!-- INSTRUCTIONS -->
+<div class="slide" id="instructions">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+    <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
+  </div>
+
+	<p class="block-text">Welcome to the experiment! In this experiment, you will tell us about how the characteristics of your identity fit together to make up who you are. Specifically, we’re interested in whether you think some of the features of your identity cause other features of your identity. Before you do that, we will have you practice doing this task with another concept. Please press the continue button to proceed.  </p>
+
+		<p>Click the button below when you are ready to begin the experiment.</p>	
+
+	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
+<!-- 	<button type="button" onclick="this.blur(); startexp(1)">Start</button>
+ -->
+  <button type="button" onclick="this.blur(); getStrengths()">Start</button>
+
+
+	<!-- Legal blurb that we're required to show. -->
+	<p class="block-text" id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology. If you have questions about this research, please contact us at stanfordpsych254@gmail.com. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you. We have recently been made aware that your public Amazon.com profile can be accessed via your worker ID if you do not choose to opt out. If you would like to opt out of this feature, you may follow instructions available <a href="http://www.amazon.com/gp/help/customer/display.html?nodeId=16465241">here</a>.</p>
+</div>
+
+<!-- IDENTITY DISRUPTION TASK -->
+<div class="slide" id="ID_self">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+
+	<p class="block-text">Before you do the practice, we would first like to understand how a change in each of the features below would change your identity. That is, for each of the features below, imagine that you are completely different on that dimension (e.g., for height, if you are tall, imagine that something changed so that you are now short). Do you think that you would still be the same person you are now, or would you be a different person? <br><br>
+
+Please indicate your answer with each of the sliders below where 0 means "I would be the exact same person" and 100 means "I would be a completely different person." <br><br>
+
+<center>
+<!-- List 16 features with rating scales -->
+<p id = "feature1">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<div id="feature1_rating" value=""> <br><br>
+
+<p id = "feature2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature2_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<div type="text" id="feature2_rating" value=""> <br><br> 
+
+<p id = "feature3">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature3_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature3_rating" value=""> <br><br> 
+
+<p id = "feature4">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature4_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature4_rating" value=""> <br><br> 
+
+<p id = "feature5">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature5_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature5_rating" value=""> <br><br> 
+
+<p id = "feature6">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature6_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature6_rating" value=""> <br><br> 
+
+<p id = "feature7">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature7_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature7_rating" value=""> <br><br> 
+
+<p id = "feature8">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature8_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature8_rating" value=""> <br><br> 
+
+<p id = "feature9">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature9_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature9_rating" value=""> <br><br> 
+
+<p id = "feature10">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature10_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature10_rating" value=""> <br><br> 
+
+<p id = "feature11">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature11_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature11_rating" value=""> <br><br> 
+
+<p id = "feature12">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature12_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature12_rating" value=""> <br><br> 
+
+<p id = "feature13">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature13_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature13_rating" value=""> <br><br> 
+
+<p id = "feature14">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature14_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature14_rating" value=""> <br><br> 
+
+<p id = "feature15">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature15_rating')" class = "feature_scale" id = "aesthetic_feat">100 
+<input type="text" id="feature15_rating" value=""> <br><br>
+
+<p id = "feature16">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 
+<input type="text" id="feature16_rating" value=""> <br><br>
+
+</center>
+
+<button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); startexp(2)">Continue</button>	
+      <tr><td align="center">
+      <div id="profilefiveMessage_att"> </div>
+      </td></tr>
+    </table>
+
+</div>
+
+<!-- CAUSAL PRACTICE TASK -->
+<!-- Instructions Page -->
+<div class="slide" id="causal_practice1">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">Let's start the practice now! Below is a diagram of how the features of being sick fit together. The arrows represent causal relationships such that the items that the arrows point to are caused by the items at the beginning of the arrow. In the diagram below there are a series of arrows that represent the following causal relationships:<br><br>
+
+Arrow #1: Catching a cold causes a fever<br>
+Arrow #2: A fever causes fatigue<br>
+Arrows #3 and #4: Being fatigued and catching a cold cause each other<br><br>
+
+You will now practice the task with the concept diagrammed above. In this task we will present each of the features one-by-one and ask which of the other features it causes. Please answer the following questions in order to express the causal relationships in the diagram above. The diagram will appear on the following screens so there is no need to memorize it. <br><br>
+
+	  <img src="images/practice_image.png" height="200" width="270" alt="Stanford University"><br><br>
+
+	<button type="button" onclick="this.blur(); practice('page2')">Continue</button>	</p>
+</div>
+
+
+<!-- Page 2: Practice Q1 - Catch a Cold -->
+<div class="slide" id="causal_practice2">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">Think about the feature: Catch a Cold. <br><br>
+
+Which of the following features are caused by 'Catch a Cold'? Please select all that apply.  <br><br>
+
+<form action="checkbox_form.asp" method="get"; style = "width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+<input type="checkbox" name="feature" value="Fatigue" id = "Fatigue_feat">Fatigue<br>
+<input type="checkbox" name="feature" value="Fever" id = "Fever_feat">Fever<br>
+</form>
+
+
+ <br><br>
+
+	  <center><img src="images/practice_image.png" height="200" width="270" alt="Stanford University"></center><br><br>
+
+<button type="button" onclick="this.blur(); getCheckbox('Fatigue_feat','Fever_feat'); practice('page3')">Continue</button>
+ </p>
+</div>
+
+
+
+<!-- Page 3: Practice Q1 - Strengths -->
+<div class="slide" id="fatigue_yes_fever_yes">
+
+  <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">That’s correct! According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
+
+Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
+
+You reported that Catching a Cold causes a Fever. What is the strength of this causal relationship?  There’s no right answer to this question. Simply pick the answer you think is correct.   <br><br>
+
+<form id="strength_cold_fever1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "cold_fever" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "cold_fever" value="3">3-strong<br>
+</form>
+
+<p  style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+You reported that Catching a Cold causes Fatigue. What is the strength of this causal relationship? There’s no right answer to this question. Simply pick the answer you think is correct.   <br><br>
+
+<form id="strength_cold_fatigue1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input type="radio" name="strength_feat" id = "cold_fatigue" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "cold_fatigue" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "cold_fatigue" value="3">3-strong<br>
+</form>
+
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_cold_fever1');getPracticeAnswers('strength_cold_fatigue1'); practice('page4')">Continue</button>
+ </p>
+</div>
+
+<!-- Page 3 -->
+<div class="slide" id="fatigue_no_fever_no">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">That’s incorrect. According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
+
+Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
+
+You reported that Catching a Cold causes a Fever. What is the strength of this causal relationship?  There’s no right answer to this question. Simply pick the answer you think is correct.   <br>
+
+<form align = "left" id="strength_cold_fever2" action="" onchange = "" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input align = "left" type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
+  <input align = "left" type="radio" name="strength_feat" id = "cold_fever" value="2">2-moderate<br>
+  <input align = "left" type="radio" name="strength_feat" id = "cold_fever" value="3">3-strong<br>
+</form>
+
+ <br><br>
+
+<p align = "left" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+You reported that Catching a Cold causes Fatigue. What is the strength of this causal relationship? There’s no right answer to this question. Simply pick the answer you think is correct.   <br>
+
+<form align = "left" id="strength_cold_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input type="radio" name="strength_feat" id = "cold_fatigue" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "cold_fatigue" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "cold_fatigue" value="3">3-strong<br>
+</form>
+
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_cold_fever2');getPracticeAnswers('strength_cold_fatigue2');practice('page4')">Continue</button>
+ </p>
+</div>
+
+
+<!-- Page 4 -->
+<div class="slide" id="causal_practice4">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">Think about the feature: Fever. <br><br>
+
+Which of the following features are caused by 'Fever'? Please select all that apply.  <br><br>
+
+<form action="checkbox_form.asp" method="get" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+<input type="checkbox" name="feature" value="Cold" id = "Cold_feat">Catch a Cold<br>
+<input type="checkbox" name="feature" value="Fatigue" id = "Fatigue_feat">Fatigue<br>
+</form>
+
+ <br><br>
+
+	  <center><img src="images/practice_image.png" height="200" width="270" alt="Stanford University"></center><br><br>
+
+<button type="button" onclick="this.blur(); getCheckbox('Cold_feat','Fatigue_feat'); practice('page5')">Continue</button>
+ </p>
+</div>
+
+<!-- Page 5 -->
+<div class="slide" id="fatigue_yes_cold_no">
+
+  <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">That’s correct! According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
+
+Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
+
+You reported that a Fever causes Fatigue. What is the strength of this causal relationship?   There’s no right answer to this question. Simply pick the answer you think is correct.    <br><br>
+
+<form id="strength_fever_fatigue1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "cold_fever" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "cold_fever" value="3">3-strong<br>
+</form>
+
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_fever_fatigue1'); experiment.next()">Continue</button>
+ </p>
+</div>
+
+<div class="slide" id="fatigue_no_cold_yes">
+
+  <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">That’s incorrect. According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
+
+Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
+
+You reported that a Fever causes Fatigue. What is the strength of this causal relationship?   There’s no right answer to this question. Simply pick the answer you think is correct.    <br><br>
+
+<form id="strength_fever_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px" >
+  <input type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "cold_fever" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "cold_fever" value="3">3-strong<br>
+</form>
+
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_fever_fatigue2');experiment.next()">Continue</button>
+ </p>
+</div>
+
+
+<div class="slide" id="connections_page">
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+	<p class="block-text">Think about your <code id="TargetFeature">{{}}</code> </p> 
+
+	<p class="block-text">Which of the other features of your personal identity listed below, if any, are caused by your <code id="TargetFeature1">{{}}</code>? You may select as many or as few features as you see fit. In the below list, please select all the features that you believe are caused by the above feature.     </p>
+
+	<form id = caused_boxes style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+   	<input type="checkbox"><div id = "feature2_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature3_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature4_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature5_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature6_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature7_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature8_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature9_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature10_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature11_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature12_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature13_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature14_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature15_c">{{}} </div><br>
+   	<input type="checkbox"><div id = "feature16_c">{{}} </div><br>
+   	</form>
+
+    <button type="button" onclick="this.blur();saveChecked('caused_boxes'); experiment.next()">Continue</button>
+</div>
+
+<div class="slide" id="demographics">
+	<p>Finally, we have a few demographic questions for you.</p>
+	<form onSubmit="submitDemographics();" id="demographicsForm" >
+How old are you?: <input type="text" name="Age" value=""><br>
+What is your native/first language?: <input type="text" name="Language" value=""><br>
+What is your ethnicity?: <select name="Ethnicity">
+    <option value="white">White</option>
+    <option value="hispanic">Hispanic or Latino</option>
+    <option value="asian">Asian/Pacific Islander</option>
+    <option value="black">Black or African American</option>
+	<option value="native">Native American</option>
+    <option value="other">Other</option>
+	</select>
+	<br><br>
+What is your gender?: <select name="Gender">
+	<option value="male">Male</option>
+    <option value="female">Female</option>
+	<option value="other">Other/Prefer not to say</option>
+	</select>
+	<br><br>
+	<p>You will now read a series of personal profiles and be asked to evaluate them. Please click the button below when you are ready to begin.</p>
+ <!--<input type="submit" value="Next Page">-->
+	<button type="button" onclick="submitDemographics();">Next Page</button>
+  </form>
+</div>
+
+<!-- The finish slide. -->
+<div class="slide" id="finished">
+	You're finished - thanks for participating! Submitting to Mechanical Turk...
+</div>
+
+<!-- Include the <a href="experiment.html">JavaScript file for the experiment</a>. As written, that script immediately executes commands, so we include it here at the end of the HTML file to ensure that resources referenced by the script actually exist. For instance, one of the immediately executed commands is <code>showSlide("instructions")</code>. If we loaded experiment.js, say, in the <code>head</code> section, <code>showSlide("instructions")</code> would fail because the <code>instructions</code> slide doesn't exist yet. It is possible to load the script in <code>head</code> but you have to ensure that any immediately executed commands, if they rely on potentially uninitialized HTML elements, are _delayed_ until the page is ready, using either [window.onload][onload] or jQuery's more robust [$(document).ready()][domReady]  -->
+<!-- [onload]: https://developer.mozilla.org/en/DOM/window.onload -->
+<!-- [domReady]: http://api.jquery.com/ready/ -->
+<script src="chen_exp.js"></script>
+
+</body>
+</html>
