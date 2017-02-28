@@ -169,67 +169,130 @@ caused_list = shuffle(caused_list);
     $("#feature16_c").text(caused_list[14]);
 }
 
-function getStrengths() {
-var div = document.createElement("div");
 
-function causalPara() {
-//for each 
 
-div.innerHTML =     
-'<div class="slide" id="featureStrengths">\n' +
-'<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px"></div>\n' +
-'<p class="block-text">You reported that your <code id="MainFeature">{{}}</code> causes your <code id = "CauseFeature">{{}}</code>. What is the strength of this causal relationship? </p>\n' +
-'<form align = "left" id="strength_cold_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">' +
-  '<input type="radio" name="strength_feat" id = "cold_fatigue" value="1">1-weak<br>' +
-  '<input type="radio" name="strength_feat" id = "cold_fatigue" value="2">2-moderate<br>' +
-  '<input type="radio" name="strength_feat" id = "cold_fatigue" value="3">3-strong<br>' +
-'</form></div>'; 
-document.body.appendChild(div);
+
+
+function getStrengths(feature) {
+  var trialID = "causalRelations";
+  var trialNum = 15 - experiment.order_causaltask.length;
+  trialNumID = trialID.concat(trialNum);
+
+
+  var newSlide = $('<div/>', {
+      id: trialNumID,
+      class: "slide",
+  });
+
+  function causalPara() {
+  tempFeatures = experiment.tempcausaldata;
+
+  var redHeaderDiv = $('<div/>', {
+        id: 'redHeader',
+        class: 'redHeader',
+    });
+
+  redHeaderDiv.html('<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px"></div>');
+  newSlide.append(redHeaderDiv);
+
+
+  for (i = 0; i < tempFeatures.length; i++) {
+
+    var featureStrengthsDiv = $('<div/>', {
+        id: 'featureStrengths' + i,
+        class: "featureStrengths",
+    });
+
+    a = i + trialNumID
+
+    featureStrengthsDiv.html('<div style="width: 500px; margin: 0 auto; text-align: center; padding: 20px 15px 10px 10px"></div>\n' +
+      '<p class="block-text">You reported that your <code id="TargetFeature'+a+
+      '">{{}}</code> causes your <code id = "CauseFeature'+a+'">{{}}</code>. What is the strength of this causal relationship? </p>\n' +
+      '<form align = "left" id="strength_cold_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">' +
+        '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="1">1-weak<br>' +
+        '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="2">2-moderate<br>' +
+        '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="3">3-strong<br>' +
+      '</form>');
+
+      newSlide.append(featureStrengthsDiv);
+  } 
+
+  var featureButtonDiv = $('<div/>', {
+        id: 'button',
+        class: 'button',
+    });
+
+  featureButtonDiv.html('<button type="button" onclick="this.blur(); experiment.next()">Continue</button>');
+  newSlide.append(featureButtonDiv);
+
+  $("body").append(newSlide);
 }
 
 causalPara()
-showSlide('featureStrengths');
+showSlide(trialNumID);
 
-targetfeat = "hi";
-$("#MainFeature").text(targetfeat);
+targetfeat = feature;
+$("#TargetFeature0"+trialNumID).text(targetfeat);
+$("#TargetFeature1"+trialNumID).text(targetfeat);
+$("#TargetFeature2"+trialNumID).text(targetfeat);
+$("#TargetFeature3"+trialNumID).text(targetfeat);
+$("#TargetFeature4"+trialNumID).text(targetfeat);
+$("#TargetFeature5"+trialNumID).text(targetfeat);
+$("#TargetFeature6"+trialNumID).text(targetfeat);
+$("#TargetFeature7"+trialNumID).text(targetfeat);
+$("#TargetFeature8"+trialNumID).text(targetfeat);
+$("#TargetFeature9"+trialNumID).text(targetfeat);
+$("#TargetFeature10"+trialNumID).text(targetfeat);
+$("#TargetFeature11"+trialNumID).text(targetfeat);
+$("#TargetFeature12"+trialNumID).text(targetfeat);
+$("#TargetFeature13"+trialNumID).text(targetfeat);
+$("#TargetFeature14"+trialNumID).text(targetfeat);
+$("#TargetFeature15"+trialNumID).text(targetfeat);
 
+targetfeat0 = experiment.tempcausaldata[0];
+targetfeat1 = experiment.tempcausaldata[1];
+targetfeat2 = experiment.tempcausaldata[2];
+targetfeat3 = experiment.tempcausaldata[3];
+targetfeat4 = experiment.tempcausaldata[4];
+targetfeat5 = experiment.tempcausaldata[5];
+targetfeat6 = experiment.tempcausaldata[6];
+targetfeat7 = experiment.tempcausaldata[7];
+targetfeat8 = experiment.tempcausaldata[8];
+targetfeat9 = experiment.tempcausaldata[9];
+targetfeat10 = experiment.tempcausaldata[10];
+targetfeat11 = experiment.tempcausaldata[11];
+targetfeat12 = experiment.tempcausaldata[12];
+targetfeat13 = experiment.tempcausaldata[13];
+targetfeat14 = experiment.tempcausaldata[14];
+targetfeat15 = experiment.tempcausaldata[15];
+
+$("#CauseFeature0"+trialNumID).text(targetfeat0);
+$("#CauseFeature1"+trialNumID).text(targetfeat1);
+$("#CauseFeature2"+trialNumID).text(targetfeat2);
+$("#CauseFeature3"+trialNumID).text(targetfeat3);
+$("#CauseFeature4"+trialNumID).text(targetfeat4);
+$("#CauseFeature5"+trialNumID).text(targetfeat5);
+$("#CauseFeature6"+trialNumID).text(targetfeat6);
+$("#CauseFeature7"+trialNumID).text(targetfeat7);
+$("#CauseFeature8"+trialNumID).text(targetfeat8);
+$("#CauseFeature9"+trialNumID).text(targetfeat9);
+$("#CauseFeature10"+trialNumID).text(targetfeat10);
+$("#CauseFeature11"+trialNumID).text(targetfeat11);
+$("#CauseFeature12"+trialNumID).text(targetfeat12);
+$("#CauseFeature13"+trialNumID).text(targetfeat13);
+$("#CauseFeature14"+trialNumID).text(targetfeat14);
+$("#CauseFeature15"+trialNumID).text(targetfeat15);
 }
-
-// function getStrengths() {
-// var div = document.createElement("div");
-
-// div.innerHTML =     
-// '<div class="slide" id="featureStrengths">\n' +
-// '<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px"></div>\n' +
-// '<p class="block-text">You reported that your</div>'
-
-// var feature = document.createTextNode("hi");
-// div.appendChild(feature);
-
-
-// // <code id="MainFeature">{{}}</code> causes your <code id = "CauseFeature">{{}}</code>. What is the strength of this causal relationship? </p>\n' +
-// // '<form align = "left" id="strength_cold_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">' +
-// //   '<input type="radio" name="strength_feat" id = "cold_fatigue" value="1">1-weak<br>' +
-// //   '<input type="radio" name="strength_feat" id = "cold_fatigue" value="2">2-moderate<br>' +
-// //   '<input type="radio" name="strength_feat" id = "cold_fatigue" value="3">3-strong<br>' +
-// // '</form></div>'; 
-
-// // var feat = document.createTextNode("hi");
-
-// // targetfeat = "hi";
-// // $("#MainFeature").text(targetfeat);
-
-// document.body.appendChild(div);
-// showSlide('featureStrengths');
-// }
 
 //function for saving checked features in causal connections task
 function saveChecked(ID) {
+experiment.tempcausaldata = [];
 var radio = document.getElementById(ID);
 for (i = 0; i < radio.length; i++) {
   if (radio[i].checked) {
     checkedFeature = caused_list[i];
     experiment.causaldata.push(checkedFeature);
+    experiment.tempcausaldata.push(checkedFeature);
     radio[i].checked = false; //turn off checked checkboxes
   }
 }
@@ -303,6 +366,7 @@ var experiment = {
   identitydata: [],
   practicedata: [],
   causaldata: [],
+  tempcausaldata: [],
   // The function that gets called when the sequence is finished.
 
   next: function() {
