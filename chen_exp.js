@@ -21,7 +21,7 @@ var order = ["ChangeFirst","ChangeFirst"];
 var feature_list = shuffle(["Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]);
 
 //for causal connections task
-var target_list = shuffle(feature_list)
+var target_list = shuffle(["attncheck1","attncheck2","Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]);
 
 // ## Helper functions
 
@@ -64,6 +64,26 @@ showSlide("ID_self");
     $("#feature16").text(feature_list[15]);
 }
 
+function checkCompleted(phase) {
+if (phase == "identity") {
+    getRatings(); 
+
+  for (i = 0; i < experiment.identitydata.length; i++) {
+
+  if (experiment.identitydata[i] == null) {
+    experiment.identitydata = [];
+$("#profilesixMessage_att").html('<font color="red">' + 
+           'Please make a response!' + 
+           '</font>');
+break;
+    }
+   else {
+      startexp(2);
+    }
+  }
+}
+}
+
 function practice(pageNum) {
 //  experiment.data.push(data);
 if (pageNum == "page1"){
@@ -94,6 +114,7 @@ if (pageNum == "page5") {
 }
 
 function getRatings() {
+
 elementlist = ['feature1_rating', 'feature2_rating','feature3_rating','feature4_rating',
               'feature5_rating', 'feature6_rating', 'feature7_rating', 'feature8_rating',
               'feature9_rating', 'feature10_rating','feature11_rating','feature12_rating',
@@ -102,6 +123,7 @@ elementlist = ['feature1_rating', 'feature2_rating','feature3_rating','feature4_
 for (e = 0; e < elementlist.length; e++) {
 element = elementlist[e];
 featrating = document.getElementById(element).value
+
 experiment.identitydata.push(featrating);
 }
 }
@@ -113,6 +135,33 @@ for (i = 0; i < radio.length; i++) {
     experiment.practicedata.push(radio[i].value);
   }
 }
+}
+
+function getStrengthsAnswers(ID) {
+ids_list = experiment.ids_causaldata;
+answered=0;
+
+for (i = 0; i < ids_list.length; i++) {
+  var radio = document.getElementById(ids_list[i]);
+
+  for (k = 0; k < radio.length; k++) {
+  if (radio[k].checked) {
+    experiment.causaldata_strengths.push(radio[k].value);
+    answered = 1+answered;
+  }
+}
+}
+
+if (answered < ids_list.length) {
+     $("#errorStrengths_att").html('<font color="red">' + 
+           'Please make a response!' + 
+           '</font>');
+}
+
+else {
+experiment.next()
+}
+
 }
 
 function updateTextInput(val,ID) {
@@ -136,7 +185,9 @@ function getCheckbox(ID1,ID2) {
 
 function connections(feature) {
 showSlide("connections_page");
-
+$("#error_att").html('<font color="red">' + 
+           '' + 
+           '</font>');
 caused_list = shuffle(["Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]);
 
 targetfeat = feature;
@@ -167,16 +218,25 @@ caused_list = shuffle(caused_list);
     $("#feature14_c").text(caused_list[12]);
     $("#feature15_c").text(caused_list[13]);
     $("#feature16_c").text(caused_list[14]);
+    $("#none").text("None of these features are caused by my " + targetfeat);
 }
 
-
-
+function attncheck() {
+showSlide("attncheck_page");
+} 
 
 
 function getStrengths(feature) {
+
+  if (experiment.tempcausaldata == 0) {
+    experiment.next()
+  } 
+
+  else {
   var trialID = "causalRelations";
   var trialNum = 15 - experiment.order_causaltask.length;
   trialNumID = trialID.concat(trialNum);
+  experiment.ids_causaldata = [];
 
 
   var newSlide = $('<div/>', {
@@ -195,7 +255,6 @@ function getStrengths(feature) {
   redHeaderDiv.html('<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px"></div>');
   newSlide.append(redHeaderDiv);
 
-
   for (i = 0; i < tempFeatures.length; i++) {
 
     var featureStrengthsDiv = $('<div/>', {
@@ -206,15 +265,16 @@ function getStrengths(feature) {
     a = i + trialNumID
 
     featureStrengthsDiv.html('<div style="width: 500px; margin: 0 auto; text-align: center; padding: 20px 15px 10px 10px"></div>\n' +
-      '<p class="block-text">You reported that your <code id="TargetFeature'+a+
-      '">{{}}</code> causes your <code id = "CauseFeature'+a+'">{{}}</code>. What is the strength of this causal relationship? </p>\n' +
-      '<form align = "left" id="strength_cold_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">' +
+      '<p class="block-text">You reported that your <b><span id="TargetFeature'+a+
+      '">{{}}</span></b> causes your <b><span id = "CauseFeature'+a+'">{{}}</span></b>. What is the strength of this causal relationship? </p>\n' +
+      '<form align = "left" id="strengths'+a+'" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">' +
         '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="1">1-weak<br>' +
         '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="2">2-moderate<br>' +
         '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="3">3-strong<br>' +
       '</form>');
 
       newSlide.append(featureStrengthsDiv);
+      experiment.ids_causaldata.push("strengths"+a)
   } 
 
   var featureButtonDiv = $('<div/>', {
@@ -222,13 +282,25 @@ function getStrengths(feature) {
         class: 'button',
     });
 
-  featureButtonDiv.html('<button type="button" onclick="this.blur(); experiment.next()">Continue</button>');
+  featureButtonDiv.html('<button type="button" onclick="this.blur(); getStrengthsAnswers(experiment.ids_causaldata);">Continue</button>');
+  
+  var errorMessDiv = $('<div/>', {
+        id: 'errorMessage',
+        class: 'errorMessage',
+    });
+
+  errorMessDiv.html('<div <tr><td align="center">\n' +
+      '<div id="errorStrengths_att"> </div>\n' +
+      '</td></tr>\n' +
+      '<br><br>');
+
   newSlide.append(featureButtonDiv);
+  newSlide.append(errorMessDiv);
 
   $("body").append(newSlide);
 }
 
-causalPara()
+causalPara();
 showSlide(trialNumID);
 
 targetfeat = feature;
@@ -282,23 +354,46 @@ $("#CauseFeature12"+trialNumID).text(targetfeat12);
 $("#CauseFeature13"+trialNumID).text(targetfeat13);
 $("#CauseFeature14"+trialNumID).text(targetfeat14);
 $("#CauseFeature15"+trialNumID).text(targetfeat15);
+  }
 }
+
 
 //function for saving checked features in causal connections task
 function saveChecked(ID) {
 experiment.tempcausaldata = [];
+
 var radio = document.getElementById(ID);
 for (i = 0; i < radio.length; i++) {
   if (radio[i].checked) {
+    if (i == 15) {
+      experiment.causaldata.push("none");
+      experiment.causaldata_strengths.push("0");
+      experiment.causaltargets.push(experiment.temptarget[0])
+      radio[i].checked = false; //turn off checked checkboxes
+      experiment.next();
+
+    } 
+    else {
     checkedFeature = caused_list[i];
     experiment.causaldata.push(checkedFeature);
     experiment.tempcausaldata.push(checkedFeature);
+    experiment.causaltargets.push(experiment.temptarget[0])
     radio[i].checked = false; //turn off checked checkboxes
   }
 }
 }
 
-var response_logged = null;
+if (experiment.tempcausaldata.length == 0 & experiment.temptarget != "attncheck1" & experiment.temptarget != "attncheck2") {
+$("#error_att").html('<font color="red">' + 
+           'Please make a response!' + 
+           '</font>');
+}
+
+if (experiment.tempcausaldata.length > 0) {
+getStrengths(targetfeat);
+
+}
+}
 
 function submitDemographics(){
 	data = $('#demographicsForm').serializeArray();  
@@ -365,8 +460,12 @@ var experiment = {
   // An array to store the data that we're collecting.
   identitydata: [],
   practicedata: [],
-  causaldata: [],
+  causaldata: [], 
+  causaltargets: [],
   tempcausaldata: [],
+  temptarget: [],
+  causaldata_strengths: [],
+  ids_causaldata: [],
   // The function that gets called when the sequence is finished.
 
   next: function() {
@@ -376,7 +475,16 @@ return;
 }
 
 var n = experiment.order_causaltask.shift();
+
+if (n == "attncheck1" | n == "attncheck2") {
+attncheck();
+}
+
+else {
+experiment.temptarget = [],
+experiment.temptarget.push(n)
 connections(n);
+}
 },
 
   end: function() {

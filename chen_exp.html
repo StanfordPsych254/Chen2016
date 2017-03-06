@@ -16,7 +16,7 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
 	
 	<!-- Include my library, [mmturkey][mmturkey], which manages submitting data to Mechanical Turk. This defines a global object, <code>turk</code>, and attaches five properties to it, <code>hitId</code>, <code>assignmentId</code>, <code>workerId</code>, <code>previewMode</code>, and <code>turkSubmitTo</code>. It also provides a single method, <code>submit(data)</code>, which you use to submit data to Turk. If no submission URL has been provided (because, e.g. you're testing your code outside of the Turk environment), <code>submit</code> displays what would have been submitted (without, obviously, any Turk-specific variables like <code>workerId</code> and <code>assignmentId</code>).  -->
 	<!-- [mmturkey]: http://github.com/longouyang/mmturkey -->
-	<script src="mmturkey-0.6.js"></script>
+	<script src="mmturkey.js"></script>
 	
 	<!-- Include the cascading style sheet (CSS), which lets us separate style from content. This stylesheet is important because it defines the notion of a **slide** and also makes things look nicer, which subjects appreciate. It's worth looking at the [source code](style.html). -->
 	<link rel="stylesheet" href="style.css" />
@@ -31,7 +31,7 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
     <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
   </div>
 
-	<p class="block-text">Welcome to the experiment! In this experiment, you will tell us about how the characteristics of your identity fit together to make up who you are. Specifically, we're interested in whether you think some of the features of your identity cause other features of your identity. Before you do that, we will have you practice doing this task with another concept. Please press the continue button to proceed.  </p>
+	<p class="block-text">Welcome to the experiment! In this experiment, you will tell us about how the characteristics of your identity fit together to make up who you are. Specifically, we're interested in whether you think that some parts of your identity cause other parts of your identity. Before you do that, we will have you practice doing this task with another concept. Please press the continue button to proceed.  </p>
 
 		<p>Click the button below when you are ready to begin the experiment.</p>	
 
@@ -135,18 +135,18 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
 <div type="text" id="feature16_rating" value=""> <br><br>
 
-
 </center>
 
-<button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); startexp(2)">Continue</button>	
-      <tr><td align="center">
-      <div id="profilefiveMessage_att"> </div>
+<!-- <button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); ">Continue</button>	
+ --> 
+ <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');">Continue</button><br><br>  
+<tr><td align="center">
+      <div id="profilesixMessage_att"> </div>
       </td></tr>
-    </table>
-
+      <br><br>
 </div>
 
-<!-- CAUSAL PRACTICE TASK -->
+<!-- CAUSAL PRACTICE TASK
 <!-- Instructions Page -->
 <div class="slide" id="causal_practice1">
 
@@ -162,7 +162,7 @@ You will now practice the task with the concept diagrammed above. In this task w
 
 	  <img src="images/practice_image.png" height="200" width="270" alt="Stanford University"><br><br>
 
-	<button type="button" onclick="this.blur(); practice('page2')">Continue</button>	</p>
+	<button type="button" onclick="this.blur(); getRatings(); practice('page2')">Continue</button>	</p>
 </div>
 
 
@@ -196,7 +196,7 @@ Which of the following features are caused by 'Catch a Cold'? Please select all 
 
   <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
   </div>
-	<p class="block-text">That’s correct! According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
+	<p class="block-text">That's correct! According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
 
 Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
 
@@ -226,7 +226,7 @@ You reported that Catching a Cold causes Fatigue. What is the strength of this c
 
   <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
   </div>
-	<p class="block-text">That’s incorrect. According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
+	<p class="block-text">That's incorrect. According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
 
 Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
 
@@ -281,7 +281,7 @@ Which of the following features are caused by 'Fever'? Please select all that ap
 
   <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
   </div>
-	<p class="block-text">That’s correct! According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
+	<p class="block-text">That's correct! According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
 
 Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
 
@@ -301,7 +301,7 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
 
   <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
   </div>
-	<p class="block-text">That’s incorrect. According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
+	<p class="block-text">That's incorrect. According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
 
 Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
 
@@ -321,33 +321,68 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
 <div class="slide" id="connections_page">
   <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
   </div>
-	<p class="block-text">Think about your <code id="TargetFeature">{{}}</code> </p> 
+	<p class="block-text">Think about your <b><span id="TargetFeature">{{}}</span></b>. </p> 
 
-	<p class="block-text">Which of the other features of your personal identity listed below, if any, are caused by your <code id="TargetFeature1">{{}}</code>? You may select as many or as few features as you see fit. In the below list, please select all the features that you believe are caused by the above feature.     </p>
+	<p class="block-text">Which of the other features of your personal identity listed below, if any, are caused by your <b><span id="TargetFeature1">{{}}</span></b>? You may select as many or as few features as you see fit. In the below list, please select all the features that you believe are caused by the above feature.     </p>
 
-	<form id = caused_boxes style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
-   	<input type="checkbox"><div id = "feature2_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature3_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature4_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature5_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature6_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature7_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature8_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature9_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature10_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature11_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature12_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature13_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature14_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature15_c">{{}} </div><br>
-   	<input type="checkbox"><div id = "feature16_c">{{}} </div><br>
+	<form id = "caused_boxes" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+   	<input type="checkbox"><span id = "feature2_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature3_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature4_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature5_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature6_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature7_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature8_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature9_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature10_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature11_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature12_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature13_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature14_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature15_c">{{}} </span><br>
+   	<input type="checkbox"><span id = "feature16_c">{{}} </span><br>
+    <input type="checkbox"><span id = "none">{{}}</span><br>
+
    	</form>
+
 
 <!--     <button type="button" onclick="this.blur();saveChecked('caused_boxes'); experiment.next()">Continue</button>
 
  -->
 
-    <button type="button" onclick="this.blur();saveChecked('caused_boxes'); getStrengths(targetfeat)">Continue</button>
+    <button type="button" onclick="this.blur();saveChecked('caused_boxes','TargetFeature');">Continue</button>
+
+    <tr><td align="center">
+      <div id="error_att"> </div>
+      </td></tr>
+      <br><br>
+ </div>
+
+ <div class="slide" id="attncheck_page">
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+  <p class="block-text">The results of the survey and our research depend critically on your answers and the attention you pay to the questions. We appreciate the time you take to participate in our survey! To make sure you are reading the questions carefully, for this question, we would like you not to select any of the below options Simply hit the arrow to continue in the survey and do not check any of the boxes. </p>
+
+  <form id = caused_boxes style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+    <input type="checkbox"><span id = "feature1_c">Aesthetic</span><br>
+    <input type="checkbox"><span id = "feature2_c">Cherished Memories of Time Spent with Parents/Family</span><br>
+    <input type="checkbox"><span id = "feature3_c">Degree of Shyness</span><br>
+    <input type="checkbox"><span id = "feature4_c">Favorite Hobbies/Activities</span><br>
+    <input type="checkbox"><span id = "feature5_c">Goals for Personal Life</span><br>
+    <input type="checkbox"><span id = "feature6_c">Height</span><br>
+    <input type="checkbox"><span id = "feature7_c">Important Childhood Memories</span><br>
+    <input type="checkbox"><span id = "feature8_c">Intelligence Levels</span><br>
+    <input type="checkbox"><span id = "feature9_c">Knowledge of Math</span><br>
+    <input type="checkbox"><span id = "feature10_c">Knowledge of Music</span><br>
+    <input type="checkbox"><span id = "feature11_c">Level of Honesty</span><br>
+    <input type="checkbox"><span id = "feature12_c">Level of Hunger</span><br>
+    <input type="checkbox"><span id = "feature13_c">Level of Loyalty</span><br>
+    <input type="checkbox"><span id = "feature14_c">Level of Wholesomeness</span><br>
+    <input type="checkbox"><span id = "feature15_c">Memories of Important Life Milestones</span><br>
+    <input type="checkbox"><span id = "feature16_c">Reliability</span><br>
+    </form>
+
+    <button type="button" onclick="this.blur();saveChecked('caused_boxes'); experiment.next()">Continue</button>
 
  </div>
 
