@@ -16,7 +16,7 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
 	
 	<!-- Include my library, [mmturkey][mmturkey], which manages submitting data to Mechanical Turk. This defines a global object, <code>turk</code>, and attaches five properties to it, <code>hitId</code>, <code>assignmentId</code>, <code>workerId</code>, <code>previewMode</code>, and <code>turkSubmitTo</code>. It also provides a single method, <code>submit(data)</code>, which you use to submit data to Turk. If no submission URL has been provided (because, e.g. you're testing your code outside of the Turk environment), <code>submit</code> displays what would have been submitted (without, obviously, any Turk-specific variables like <code>workerId</code> and <code>assignmentId</code>).  -->
 	<!-- [mmturkey]: http://github.com/longouyang/mmturkey -->
-	<script src="mmturkey.js"></script>
+	<script src="mmturkey-0.6.js"></script>
 	
 	<!-- Include the cascading style sheet (CSS), which lets us separate style from content. This stylesheet is important because it defines the notion of a **slide** and also makes things look nicer, which subjects appreciate. It's worth looking at the [source code](style.html). -->
 	<link rel="stylesheet" href="style.css" />
@@ -405,10 +405,11 @@ What is your gender?: <select name="Gender">
     <option value="female">Female</option>
 	<option value="other">Other/Prefer not to say</option>
 	</select>
-	<br><br>
-	<p>You will now read a series of personal profiles and be asked to evaluate them. Please click the button below when you are ready to begin.</p>
- <!--<input type="submit" value="Next Page">-->
-	<button type="button" onclick="submitDemographics();">Next Page</button>
+
+<br><br>
+Did you run into any issues?: <input type="text" name="Issues" value=""><br>
+
+	<button type="button" onclick="submitDemographics();experiment.end();">Submit</button>
   </form>
 </div>
 

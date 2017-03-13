@@ -397,7 +397,7 @@ getStrengths(targetfeat);
 
 function submitDemographics(){
 	data = $('#demographicsForm').serializeArray();  
-	experiment.data.push(data);
+	experiment.demographics.push(data);
 	experiment.end();
 }
 
@@ -466,11 +466,12 @@ var experiment = {
   temptarget: [],
   causaldata_strengths: [],
   ids_causaldata: [],
+  demographics: [],
   // The function that gets called when the sequence is finished.
 
   next: function() {
 if (experiment.order_causaltask.length == 0) {
-experiment.end();
+showSlide("demographics");
 return;
 }
 
@@ -491,11 +492,7 @@ connections(n);
     // Show the finish slide.
     showSlide("finished");
     // Wait 1.5 seconds and then submit the whole experiment object to Mechanical Turk (mmturkey filters out the functions so we know we're just submitting properties [i.e. data])
-    setTimeout(function() { turk.submit(experiment) }, 1500);
+    // setTimeout(function() { turk.submit(experiment) }, 1500);
+    turk.submit(experiment)
   },
-  // The work horse of the sequence - what to do on every trial.
 }
-
-
-// ## The main event
-// I implement the sequence as an object with properties and methods. The benefit of encapsulating everything in an object is that it's conceptually coherent (i.e. the <code>data</code> variable belongs to this particular sequence and not any other) and allows you to **compose** sequences to build more complicated experiments. For instance, if you wanted an experiment with, say, a survey, a reaction time test, and a memory test presented in a number of different orders, you could easily do so by creating three separate sequences and dynamically setting the <code>end()</code> function for each sequence so that it points to the next. **More practically, you should stick everything in an object and submit that whole object so that you don't lose data (e.g. randomization parameters, what condition the subject is in, etc). Don't worry about the fact that some of the object properties are functions -- mmturkey (the Turk submission library) will strip these out.**
