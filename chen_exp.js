@@ -1,29 +1,14 @@
-// I'm implementing the experiment using a data structure that I call a **sequence**. The insight behind sequences is that many experiments consist of a sequence of largely homogeneous trials that vary based on a parameter. For instance, in this example experiment, a lot stays the same from trial to trial - we always have to present some number, the subject always has to make a response, and we always want to record that response. Of course, the trials do differ - we're displaying a different number every time. The idea behind the sequence is to separate what stays the same from what differs - to **separate code from data**. This results in **parametric code**, which is much easier to maintain - it's simple to add, remove, or change conditions, do randomization, and do testing.
-
 // ## High-level overview
 // Things happen in this order:
 // 
-// 1. Compute randomization parameters (which keys to press for even/odd and trial order), fill in the template <code>{{}}</code> slots that indicate which keys to press for even/odd, and show the instructions slide.
-// 2. Set up the experiment sequence object.
-// 3. When the subject clicks the start button, it calls <code>experiment.next()</code>
-// 4. <code>experiment.next()</code> checks if there are any trials left to do. If there aren't, it calls <code>experiment.end()</code>, which shows the finish slide, waits for 1.5 seconds, and then uses mmturkey to submit to Turk.
-// 5. If there are more trials left, <code>experiment.next()</code> shows the next trial, records the current time for computing reaction time, and sets up a listener for a key press.
-// 6. The key press listener, when it detects either a P or a Q, constructs a data object, which includes the presented stimulus number, RT (current time - start time), and whether or not the subject was correct. This entire object gets pushed into the <code>experiment.data</code> array. Then we show a blank screen and wait 500 milliseconds before calling <code>experiment.next()</code> again.
 
-  // ASSIGN VARIABLES
+// ASSIGN VARIABLES
 
-// var order = shuffle(["CausalFirst","ChangeFirst"])
+var feature_list = shuffle(["Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]); //for identity task 
+var target_list = shuffle(["attncheck1","attncheck2","Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]); //for causal connections task
+target_list.unshift("intro")
 
-var order = ["ChangeFirst","ChangeFirst"];
-
-
-//for identity task 
-var feature_list = shuffle(["Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]);
-
-//for causal connections task
-var target_list = shuffle(["attncheck1","attncheck2","Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]);
-
-// ## Helper functions
+// HELPER FUNCTIONS
 
 // Shows slides. We're using jQuery here - the **$** is the jQuery selector function, which takes as input either a DOM element or a CSS selector string.
 function showSlide(id) {
@@ -33,18 +18,129 @@ function showSlide(id) {
 	$("#"+id).show();
 }
 
-// Get a random integer less than n.
-function randomInteger(n) {
-	return Math.floor(Math.random()*n);
+// Checks whether all ratings have a value (e.g., participants has provided ratings for all features)
+function checkCompleted(phase) {
+if (phase == "identity") {
+    getRatings(); 
+
+  for (i = 0; i < experiment.identitydata.length; i++) {
+
+  if (experiment.identitydata[i] == null) {
+    experiment.identitydata = [];
+$("#noresponse_att").html('<font color="red">' + 
+           'Please make a response!' + 
+           '</font>');
+break;
+    }
+   else {
+    }
+  }
+}
 }
 
-function listFeatures() {
-     for (i = 1; i < feature_list.length; i++) 
-     	document.text(feature_list[i]);
- }
+// Save ratings in the identity disruption task
+function getRatings() {
 
+elementlist = ['feature1_rating', 'feature2_rating','feature3_rating','feature4_rating',
+              'feature5_rating', 'feature6_rating', 'feature7_rating', 'feature8_rating',
+              'feature9_rating', 'feature10_rating','feature11_rating','feature12_rating',
+              'feature13_rating', 'feature14_rating', 'feature15_rating', 'feature16_rating']
+
+for (e = 0; e < elementlist.length; e++) {
+element = elementlist[e];
+featrating = document.getElementById(element).value
+
+experiment.identitydata.push(featrating);
+}
+}
+
+//Save responses in the practice task
+function getPracticeAnswers(ID) {
+var radio = document.getElementById(ID);
+for (i = 0; i < radio.length; i++) {
+  if (radio[i].checked) {
+    experiment.practicedata.push(radio[i].value);
+  }
+}
+}
+
+//Save responses in causal connections task
+function getStrengthsAnswers(ID) {
+ids_list = experiment.ids_causaldata;
+answered=0;
+
+for (i = 0; i < ids_list.length; i++) {
+  var radio = document.getElementById(ids_list[i]);
+
+  for (k = 0; k < radio.length; k++) {
+  if (radio[k].checked) {
+    experiment.causaldata_strengths.push(radio[k].value);
+    answered = 1+answered;
+  }
+}
+}
+
+if (answered < ids_list.length) {
+     $("#errorStrengths_att").html('<font color="red">' + 
+           'Please make a response!' + 
+           '</font>');
+}
+else {
+experiment.next();
+
+}
+
+}
+
+function updateTextInput(val,ID) {
+   document.getElementById(ID).value=val;
+   rating = document.getElementById(ID).value;
+}
+
+function remove(array, element) {
+    return array.filter(e => e !== element);
+}
+
+function getCheckbox(ID1,ID2) {
+  data = {};
+  data[ID1] = document.getElementById(ID1).checked;
+  experiment.practicedata.push(document.getElementById(ID1).checked);
+
+  data[ID2] = document.getElementById(ID2).checked;
+  experiment.practicedata.push(document.getElementById(ID2).checked);
+}
+
+// Shuffle array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+// Submitting Demographics Page
+function submitDemographics(){
+  data = $('#demographicsForm').serializeArray();  
+  experiment.demographics.push(data);
+  experiment.end();
+}
+
+// FUNCTIONS FOR INDIVIDUAL PAGES
+
+// IDENTIDY DISRUPTION PAGE
 function identityDisruption() {
-//experiment.data.push(cond)
 showSlide("ID_self");
     $("#feature1").text(feature_list[0]);
     $("#feature2").text(feature_list[1]);
@@ -64,28 +160,29 @@ showSlide("ID_self");
     $("#feature16").text(feature_list[15]);
 }
 
-function checkCompleted(phase) {
-if (phase == "identity") {
-    getRatings(); 
-
-  for (i = 0; i < experiment.identitydata.length; i++) {
-
-  if (experiment.identitydata[i] == null) {
-    experiment.identitydata = [];
-$("#profilesixMessage_att").html('<font color="red">' + 
-           'Please make a response!' + 
-           '</font>');
-break;
-    }
-   else {
-      startexp(2);
-    }
-  }
+// IDENTIDY DISRUPTION PAGE 2
+function identityDisruption_2() {
+showSlide("ID_self_2");
+    $("#feature1_2").text(feature_list[0]);
+    $("#feature2_2").text(feature_list[1]);
+    $("#feature3_2").text(feature_list[2]);
+    $("#feature4_2").text(feature_list[3]);
+    $("#feature5_2").text(feature_list[4]);
+    $("#feature6_2").text(feature_list[5]);
+    $("#feature7_2").text(feature_list[6]);
+    $("#feature8_2").text(feature_list[7]);
+    $("#feature9_2").text(feature_list[8]);
+    $("#feature10_2").text(feature_list[9]);
+    $("#feature11_2").text(feature_list[10]);
+    $("#feature12_2").text(feature_list[11]);
+    $("#feature13_2").text(feature_list[12]);
+    $("#feature14_2").text(feature_list[13]);
+    $("#feature15_2").text(feature_list[14]);
+    $("#feature16_2").text(feature_list[15]);
 }
-}
 
+// PRACTICE PAGES
 function practice(pageNum) {
-//  experiment.data.push(data);
 if (pageNum == "page1"){
   showSlide("causal_practice1");
 }
@@ -113,75 +210,8 @@ if (pageNum == "page5") {
 }
 }
 
-function getRatings() {
 
-elementlist = ['feature1_rating', 'feature2_rating','feature3_rating','feature4_rating',
-              'feature5_rating', 'feature6_rating', 'feature7_rating', 'feature8_rating',
-              'feature9_rating', 'feature10_rating','feature11_rating','feature12_rating',
-              'feature13_rating', 'feature14_rating', 'feature15_rating', 'feature16_rating']
 
-for (e = 0; e < elementlist.length; e++) {
-element = elementlist[e];
-featrating = document.getElementById(element).value
-
-experiment.identitydata.push(featrating);
-}
-}
-
-function getPracticeAnswers(ID) {
-var radio = document.getElementById(ID);
-for (i = 0; i < radio.length; i++) {
-  if (radio[i].checked) {
-    experiment.practicedata.push(radio[i].value);
-  }
-}
-}
-
-function getStrengthsAnswers(ID) {
-ids_list = experiment.ids_causaldata;
-answered=0;
-
-for (i = 0; i < ids_list.length; i++) {
-  var radio = document.getElementById(ids_list[i]);
-
-  for (k = 0; k < radio.length; k++) {
-  if (radio[k].checked) {
-    experiment.causaldata_strengths.push(radio[k].value);
-    answered = 1+answered;
-  }
-}
-}
-
-if (answered < ids_list.length) {
-     $("#errorStrengths_att").html('<font color="red">' + 
-           'Please make a response!' + 
-           '</font>');
-}
-
-else {
-experiment.next()
-}
-
-}
-
-function updateTextInput(val,ID) {
-   document.getElementById(ID).value=val;
-   rating = document.getElementById(ID).value;
-   // experiment.identitydata.push(rating);
-}
-
-function remove(array, element) {
-    return array.filter(e => e !== element);
-}
-
-function getCheckbox(ID1,ID2) {
-	data = {};
-	data[ID1] = document.getElementById(ID1).checked;
-	experiment.practicedata.push(document.getElementById(ID1).checked);
-
-	data[ID2] = document.getElementById(ID2).checked;
-	experiment.practicedata.push(document.getElementById(ID2).checked);
-}
 
 function connections(feature) {
 showSlide("connections_page");
@@ -227,7 +257,6 @@ showSlide("attncheck_page");
 
 
 function getStrengths(feature) {
-
   if (experiment.tempcausaldata == 0) {
     experiment.next()
   } 
@@ -363,6 +392,9 @@ function saveChecked(ID) {
 experiment.tempcausaldata = [];
 
 var radio = document.getElementById(ID);
+var none = 0;
+
+if (ID == "caused_boxes") {
 for (i = 0; i < radio.length; i++) {
   if (radio[i].checked) {
     if (i == 15) {
@@ -370,9 +402,10 @@ for (i = 0; i < radio.length; i++) {
       experiment.causaldata_strengths.push("0");
       experiment.causaltargets.push(experiment.temptarget[0])
       radio[i].checked = false; //turn off checked checkboxes
+      none = 1;
       experiment.next();
-
     } 
+
     else {
     checkedFeature = caused_list[i];
     experiment.causaldata.push(checkedFeature);
@@ -383,74 +416,72 @@ for (i = 0; i < radio.length; i++) {
 }
 }
 
-if (experiment.tempcausaldata.length == 0 & experiment.temptarget != "attncheck1" & experiment.temptarget != "attncheck2") {
+if (experiment.tempcausaldata.length == 0 & experiment.temptarget != "attncheck1" & experiment.temptarget != "attncheck2" & none != 1) {
 $("#error_att").html('<font color="red">' + 
            'Please make a response!' + 
            '</font>');
 }
 
-if (experiment.tempcausaldata.length > 0) {
+none = 0;
+
+if (experiment.tempcausaldata.length > 0 & ID != "caused_boxes_attn") {
 getStrengths(targetfeat);
-
 }
 }
 
-function submitDemographics(){
-	data = $('#demographicsForm').serializeArray();  
-	experiment.demographics.push(data);
-	experiment.end();
-}
-
-// Get a random element from an array (e.g., <code>random_element([4,8,7])</code> could return 4, 8, or 7). This is useful for condition randomization.
-function randomElement(array) {
-  return array[randomInteger(array.length)];
-}
-
-function startexp(phase) {
-
-if (order[0] == "ChangeFirst" & phase == 1) {
-  identityDisruption();
-}
-
-if (order[0] == "CausalFirst" & phase == 1) {
-  practice("page1");
-}
-
-if (order[0] == "ChangeFirst" & phase == 2) {
-  practice("page1");
-}
-
-if (order[0] == "CausalFirst" & phase == 2) {
-  identityDisruption();
-}
-
-}
-
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+if (ID == "caused_boxes_attn") {
+  var fail = 0;
+for (i = 0; i < radio.length; i++) {
+  if (radio[i].checked) {
+    experiment.causaldata.push("fail");
+    experiment.causaldata_strengths.push("NA");
+    experiment.causaltargets.push("attention_check")
+    fail = 1;
+    radio[i].checked = false;
   }
-
-  return array;
 }
 
+if (fail == 0) {
+    experiment.causaldata.push("pass");
+    experiment.causaldata_strengths.push("NA");
+    experiment.causaltargets.push("attention_check")
+}
+
+experiment.next();
+}
+}
+
+function startexp() {
+order = experiment.phase_order[0];
+phase = experiment.phase_order_temp.length;
+
+if (order == "ChangeFirst" & phase == 2) {
+  identityDisruption()
+}
+
+else if (order == "ChangeFirst" & phase == 1) {
+  practice("page1");
+}
+
+else if (order == "MapFirst" & phase == 2) {
+  practice("page1")
+}
+
+else if (order == "MapFirst" & phase == 1) {
+  identityDisruption_2();
+}
+
+else if (phase == 0) {
+showSlide("demographics");
+}
+
+experiment.phase_order_temp.shift();
+}
 
 showSlide("instructions");
 
 var experiment = {
   // Parameters for this sequence.
-  exp_order: order,
   order_identitytask: feature_list,
   order_causaltask: target_list,
   //trials: myTrialOrder,
@@ -468,16 +499,30 @@ var experiment = {
   ids_causaldata: [],
   demographics: [],
   // The function that gets called when the sequence is finished.
+  phase_order: shuffle(["ChangeFirst","MapFirst"]), //order of phases, remember to add shuffle
+  phase_order_temp: ["phase1","phase2"],
+  //ChangeFirst = Identity Disruption task, Causal Connections task
+  //MapFirst = Causal Connections task, Identity Disruption task 
 
-  next: function() {
+next: function() {
 if (experiment.order_causaltask.length == 0) {
+  startexp();
+return;
+}
+
 showSlide("demographics");
+
+
+if (experiment.order_causaltask.length == 19) {
+showSlide("connections_intro");
+experiment.order_causaltask.shift();
 return;
 }
 
 var n = experiment.order_causaltask.shift();
 
 if (n == "attncheck1" | n == "attncheck2") {
+experiment.temptarget.push(n)
 attncheck();
 }
 

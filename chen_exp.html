@@ -36,7 +36,7 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
 		<p>Click the button below when you are ready to begin the experiment.</p>	
 
 	<!-- Button to start the experiment. <code>this.blur()</code> removes the focus from the button, if the user pressed the button by using the keyboard, rather than the mouse. -->
-	<button type="button" onclick="this.blur(); startexp(1)">Start</button>
+	<button type="button" onclick="this.blur(); startexp()">Start</button>
 
 <!--   <button type="button" onclick="this.blur(); getStrengths()">Start</button>
  -->
@@ -139,9 +139,110 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 
 <!-- <button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); ">Continue</button>	
  --> 
- <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');">Continue</button><br><br>  
+ <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');startexp();">Continue</button><br><br>  
 <tr><td align="center">
-      <div id="profilesixMessage_att"> </div>
+      <div id="noresponse_att"> </div>
+      </td></tr>
+      <br><br>
+</div>
+
+<!-- IDENTITY DISRUPTION 2 TASK -->
+<div class="slide" id="ID_self_2">
+
+  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+
+  <p class="block-text">We would now like to understand how a change in each of the features below would change your identity. That is, for each of the features below, imagine that you are completely different on that dimension (e.g., for height, if you are tall, imagine that something changed so that you are now short). Do you think that you would still be the same person you are now, or would you be a different person? <br><br>
+
+Please indicate your answer with each of the sliders below where 0 means "I would be the exact same person" and 100 means "I would be a completely different person." <br><br>
+
+<center>
+<!-- List 16 features with rating scales -->
+<p id = "feature1_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div id="feature1_rating" value=""> <br><br>
+
+
+<p id = "feature2_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature2_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature2_rating" value=""> <br><br> 
+
+
+<p id = "feature3_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature3_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature3_rating" value=""> <br><br> 
+
+
+<p id = "feature4_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature4_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature4_rating" value=""> <br><br> 
+
+
+<p id = "feature5_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature5_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature5_rating" value=""> <br><br> 
+
+
+<p id = "feature6_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature6_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature6_rating" value=""> <br><br> 
+
+
+<p id = "feature7_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature7_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature7_rating" value=""> <br><br> 
+
+
+<p id = "feature8_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature8_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature8_rating" value=""> <br><br> 
+
+
+<p id = "feature9_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature9_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature9_rating" value=""> <br><br> 
+
+
+<p id = "feature10_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature10_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature10_rating" value=""> <br><br> 
+
+
+<p id = "feature11_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature11_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature11_rating" value=""> <br><br> 
+
+<p id = "feature12_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature12_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature12_rating" value=""> <br><br> 
+
+
+<p id = "feature13_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature13_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature13_rating" value=""> <br><br> 
+
+
+<p id = "feature14_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature14_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature14_rating" value=""> <br><br> 
+
+
+<p id = "feature15_2">{{}} </p>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature15_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+<div type="text" id="feature15_rating" value=""> <br><br>
+
+
+<p id = "feature16_2">{{}} </p>
+0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+<div type="text" id="feature16_rating" value=""> <br><br>
+
+</center>
+
+<!-- <button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); ">Continue</button>  
+ --> 
+ <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');startexp()">Continue</button><br><br>  
+<tr><td align="center">
+      <div id="noresponse_att"> </div>
       </td></tr>
       <br><br>
 </div>
@@ -162,7 +263,7 @@ You will now practice the task with the concept diagrammed above. In this task w
 
 	  <img src="images/practice_image.png" height="200" width="270" alt="Stanford University"><br><br>
 
-	<button type="button" onclick="this.blur(); getRatings(); practice('page2')">Continue</button>	</p>
+	<button type="button" onclick="this.blur(); practice('page2')">Continue</button>	</p>
 </div>
 
 
@@ -200,7 +301,7 @@ Which of the following features are caused by 'Catch a Cold'? Please select all 
 
 Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
 
-You reported that Catching a Cold causes a Fever. What is the strength of this causal relationship?  There’s no right answer to this question. Simply pick the answer you think is correct.   <br><br>
+You reported that Catching a Cold causes a Fever. What is the strength of this causal relationship?  There's no right answer to this question. Simply pick the answer you think is correct.   <br><br>
 
 <form id="strength_cold_fever1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
   <input type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
@@ -209,7 +310,7 @@ You reported that Catching a Cold causes a Fever. What is the strength of this c
 </form>
 
 <p  style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
-You reported that Catching a Cold causes Fatigue. What is the strength of this causal relationship? There’s no right answer to this question. Simply pick the answer you think is correct.   <br><br>
+You reported that Catching a Cold causes Fatigue. What is the strength of this causal relationship? There's no right answer to this question. Simply pick the answer you think is correct.   <br><br>
 
 <form id="strength_cold_fatigue1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
   <input type="radio" name="strength_feat" id = "cold_fatigue" value="1">1-weak<br>
@@ -230,7 +331,7 @@ You reported that Catching a Cold causes Fatigue. What is the strength of this c
 
 Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
 
-You reported that Catching a Cold causes a Fever. What is the strength of this causal relationship?  There’s no right answer to this question. Simply pick the answer you think is correct.   <br>
+You reported that Catching a Cold causes a Fever. What is the strength of this causal relationship?  There's no right answer to this question. Simply pick the answer you think is correct.   <br>
 
 <form align = "left" id="strength_cold_fever2" action="" onchange = "" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
   <input align = "left" type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
@@ -241,7 +342,7 @@ You reported that Catching a Cold causes a Fever. What is the strength of this c
  <br><br>
 
 <p align = "left" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
-You reported that Catching a Cold causes Fatigue. What is the strength of this causal relationship? There’s no right answer to this question. Simply pick the answer you think is correct.   <br>
+You reported that Catching a Cold causes Fatigue. What is the strength of this causal relationship? There's no right answer to this question. Simply pick the answer you think is correct.   <br>
 
 <form align = "left" id="strength_cold_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
   <input type="radio" name="strength_feat" id = "cold_fatigue" value="1">1-weak<br>
@@ -285,7 +386,7 @@ Which of the following features are caused by 'Fever'? Please select all that ap
 
 Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
 
-You reported that a Fever causes Fatigue. What is the strength of this causal relationship?   There’s no right answer to this question. Simply pick the answer you think is correct.    <br><br>
+You reported that a Fever causes Fatigue. What is the strength of this causal relationship?   There's no right answer to this question. Simply pick the answer you think is correct.    <br><br>
 
 <form id="strength_fever_fatigue1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
   <input type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
@@ -305,7 +406,7 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
 
 Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
 
-You reported that a Fever causes Fatigue. What is the strength of this causal relationship?   There’s no right answer to this question. Simply pick the answer you think is correct.    <br><br>
+You reported that a Fever causes Fatigue. What is the strength of this causal relationship? There's no right answer to this question. Simply pick the answer you think is correct.    <br><br>
 
 <form id="strength_fever_fatigue2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px" >
   <input type="radio" name="strength_feat" id = "cold_fever" value="1">1-weak<br>
@@ -317,6 +418,15 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
  </p>
 </div>
 
+<div class ="slide" id="connections_intro">
+<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
+  </div>
+  <p class="block-text">We are now done with practice! You will now do the same task for the features of your personal identity. Your personal identity is what defines you as a person and what makes you the person you are.    
+
+There are no right or wrong answers. We are interested in how you think the features of your identity are causally related. You should indicate as many or as few causal relationships as you see fit.</p> 
+
+<button type="button" onclick="this.blur();experiment.next();">Continue</button>
+ </div>
 
 <div class="slide" id="connections_page">
   <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
@@ -350,7 +460,7 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
 
  -->
 
-    <button type="button" onclick="this.blur();saveChecked('caused_boxes','TargetFeature');">Continue</button>
+    <button type="button" onclick="this.blur();saveChecked('caused_boxes');">Continue</button>
 
     <tr><td align="center">
       <div id="error_att"> </div>
@@ -363,7 +473,7 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
   </div>
   <p class="block-text">The results of the survey and our research depend critically on your answers and the attention you pay to the questions. We appreciate the time you take to participate in our survey! To make sure you are reading the questions carefully, for this question, we would like you not to select any of the below options Simply hit the arrow to continue in the survey and do not check any of the boxes. </p>
 
-  <form id = caused_boxes style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <form id = caused_boxes_attn style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
     <input type="checkbox"><span id = "feature1_c">Aesthetic</span><br>
     <input type="checkbox"><span id = "feature2_c">Cherished Memories of Time Spent with Parents/Family</span><br>
     <input type="checkbox"><span id = "feature3_c">Degree of Shyness</span><br>
@@ -382,7 +492,7 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
     <input type="checkbox"><span id = "feature16_c">Reliability</span><br>
     </form>
 
-    <button type="button" onclick="this.blur();saveChecked('caused_boxes'); experiment.next()">Continue</button>
+    <button type="button" onclick="this.blur();saveChecked('caused_boxes_attn');">Continue</button>
 
  </div>
 
