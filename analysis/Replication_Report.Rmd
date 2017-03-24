@@ -1,0 +1,303 @@
+---
+title: "Replication of Beliefs About the Causal Structure of the Self-Concept Determine Which Changes Disrupt Personal Identity by Stephanie Y. Chen, Oleg Urminsky, and Daniel M. Bartels (2016, Psychological Science)"
+author: "Mika Asaba (masaba@stanford.edu)"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+
+##Introduction
+
+The authors were interested in the age-old question of what makes people who they are, and people's beliefs about the structure of personal identity for themselves and for others. Specifically, they proposed that people's representations of personal identity incorporate the causal relationships among features in identity. One possibility is that people reason about their self-concept similarly to how they reason about concepts in general, such that more causally central features are more defining of identity.
+
+In Experiment 1, subjects were shown 16 features of personal identity and were asked for each feature to: (1) rate how disruptive it would be to their identity if the feature were to change in a meaningful way, and (2) indicate which other features are caused by that feature and how strong the causal relationship is. Subjects either thought about their own identity (Self condition), a close other's identity (Close-other condition), or a generic other's identity (Generic-other condition). Here, we specifically test the the Self condition. The target finding for replication is that features with more causal connections were rated as being more disruptive to identity.
+
+##Methods
+Link to testable replication paradigm: https://web.stanford.edu/~masaba/254/Chen2016/experiment/chen_exp.html
+
+
+###Power Analysis
+
+#### Original Values
+Original r value = .34
+
+Original sample size (in Self condition): 80 subjects
+
+Original power: .878
+
+
+#### Power Analysis
+Power analysis for replication given original effect size.
+
+80% power: N=65
+
+90% power: N=86
+
+95% power: N=106
+
+We decided to run the replication with N=65 for 80% power.
+
+###Planned Sample
+
+The planned sample size is 26, and participants will be English-speaking adults from the United States. According to the original study, participants were excluded due to a scripting error (5), failing attention checks (4), providing identical answers to every question (2). We will use these same criteria for excluding participants.
+
+###Materials
+
+The task was originally presented in an online survey via Amazon's Mechanical Turk. The specific features that the authors chose for the experiment are: cherished memories of time with parents/family, important childhood memories, memories of important life milestones, level of wholesomeness, level of honesty, level of loyalty, intelligence level, degree of shyness, reliability, goals for personal life, favorite hobbies/activities, aesthetic preferences, knowledge of math, knowledge of music, height, and level of hunger. 
+
+Here is the exact wording for the key questions, quoted from Experiment 1 Materials via OSF.
+
+[Identity Task]
+"...we would first like to understand how a change in each of the features below would change your identity. That is, for each of the features below, imagine that you are completely different on that dimension (e.g., for height, if you are tall, imagine that something changed so that you are now short). Do you think that you would still be the same person you are now, or would you be a different person? 
+
+Please indicate your answer with each of the sliders below where 0 means "I would be the exact same person" and 100 means "I would be a completely different person.""
+
+[Causal Task]
+"Think about your X.
+
+Which of the other features of your personal identity listed below, if any, are caused by your X? You may select as many or as few features as you see fit. In the below list, please select all the features that you believe are caused by the above feature."
+
+In the paper, the materials and procedure were combined into a single "methods" which I have copied below. 
+
+###Procedure	
+
+Quoted from Experiment 1 Methods on p. 1399-1400:
+
+"The power analysis from a pilot experiment (for details, see Appendix S1 in the Supplemental Material available online) suggested a sample size of 80 per cell. Two hundred fifty Amazon Mechanical Turk respondents from the United States were randomly assigned to one of three conditions (self, close other, or generic other). Five participants were excluded because of a scripting error, 4 because they failed an attention check, and 2 because they gave identical answers to every question, for a total of 11 exclusions. This resulted in a final sample of 239. Results were similar when we included all participants who provided usable data (for details, see Appendix S1).
+
+All participants completed both a causal-relationships task and an identity-disruption survey. To measure centrality, we asked participants in the self condition to report the causal connections among the features of their own identity. To measure perceived disruption to identity, we asked these participants to rate the extent to which a change in each identity feature would disrupt
+their own identity. Participants in the close-other condition did the same for a nonromantic close other whom they specified. Participants in the generic-other condition completed the tasks for a generic other person. The order of the tasks was counterbalanced across participants within each condition.
+
+In the causal-relationships task, participants reported the causal relationships that they perceived among 16 features of personal identity (see Table 1). Twelve of the 16 features were intended to be of high importance and were chosen from four categories of personal identity that had been identified as important in previous research: autobiographical memories, personality, morality, and preferences and desires (e.g., Strohminger & Nichols, 2014). The remaining 4 were intended to be of low importance. Two were found in previous research to be less important for identity (instances of semantic memories; Strohminger & Nichols, 2014), and 2 (fillers) were found to be unimportant to identity in a pretest.
+
+After practicing the causal-relationships task with an unrelated concept and receiving feedback, participants completed 16 randomized trials. In each trial, a different feature was the target. Participants indicated which of the other 15 features, if any, was caused by the target feature (see Fig. 1). Then, for each feature selected as a direct effect, participants rated the strength of its relationship (1 = weak, 2 = moderate, 3 = strong) with the target feature.
+
+In the identity-disruption survey, participants rated the extent to which change in each feature would disrupt the identity of the person that corresponded to their condition (i.e., self, close other, or generic other). They rated disruption on a scale of 0 to 100; larger numbers indicated greater disruption. (For the wording of the question, see Appendix S1 in the Supplemental Material.)"
+
+We followed this exact procedure with the main exception being that we only ran the Self condition.
+
+###Analysis Plan
+
+Quoted from Experiment 1 Results on p. 1400: 
+
+"Our analyses used the number of causal connections (i.e., the number of other features to which a target fea- ture was directly linked, either as a cause or as an effect) as the measure of causal centrality. More links indicated greater centrality. Our findings were similar when we used an alternative approach, causal depth (the dependency model; Sloman et al., 1998), as the measure of causal centrality (for details of analysis and results, see Appendix S2 in the Supplemental Material)."
+[...]
+the **average individual-level correlations (within individual participants, across all items) were positive in all conditions (see Table 2)**. The majority of participants in all conditions rated changes in the fea- tures with more causal connections as being more disruptive (rs was positive for 77%, 84%, and 74% of participants in the self, close-other, and generic-other conditions, respectively)."
+
+Table 2 shows a positive correlation between disruption ratings and causal centrality (rs = .34, 95% CI [.25, .44], t(78) = 7.29, p < .001). The key analysis of interest will be an individual-level Spearman correlation on disruption ratings and number of causal connections for each feature. The authors (1) calculated the spearman correlations of disruption ratings and number of causal connections for each subject, (2) performed a fisher transformation (from rho to z) on each subject's rho, and (3) running a one-sample t-test on the z-scores to ask whether the average rho was greater than zero.
+
+###Differences from Original Study
+
+There are minimal differences between the original study and the replication. In the identity task, it was unclear how participants provide answers (e.g., via a rating scale, or a write-in text-box). Here, we've used a sliding scale from 0 to 100.
+
+<!-- ### Methods Addendum (Post Data Collection) -->
+
+<!-- You can comment this section out prior to final report with data collection. -->
+
+<!-- #### Actual Sample -->
+<!--   Sample size, demographics, data exclusions based on rules spelled out in analysis plan -->
+
+<!-- #### Differences from pre-data collection methods plan -->
+<!--   Any differences from what was described as the original plan, or “none”. -->
+
+<!-- ##Results -->
+
+
+### Data preparation
+
+Data preparation following the analysis plan.
+
+####Load Relevant Libraries and Functions
+```{r include=F}
+rm(list=ls())
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(langcog) 
+library(rjson)
+library(lme4)
+library(psych)
+```
+
+####Import data
+```{r, include=FALSE}
+path <- "/Users/SLL_labmanager/Dropbox/School/Class/Psych254/Chen2016/Projects/"
+files <- dir(paste0(path,"mturk/production-results/"), 
+             pattern = "*.json")
+id.raw <- data.frame() #for identity data
+pd.raw <- data.frame() #for practice data
+cd.raw <- data.frame() #for causal connections data
+dd.raw <- data.frame() #for demographics
+
+for (f in files) {
+  jf <- paste0(path, "mturk/production-results/",f)
+  jd <- fromJSON(paste(readLines(jf), collapse=""))
+  
+  #data frame for identity data
+  id.subj <- data.frame(workerid = jd$WorkerId, 
+                   identity_ratings = jd$answer$data$identitydata,
+                   identity_feature = jd$answer$data$order_identitytask)
+  id.raw <- bind_rows(id.raw, id.subj)
+ 
+  #data frame for practice data
+  pd.subj <- data.frame(workerid = jd$WorkerId, 
+                   practice_data = jd$answer$data$practicedata)
+  pd.raw <- bind_rows(pd.raw, pd.subj)
+  
+  #data frame for causal data
+  cd.subj <- data.frame(workerid = jd$WorkerId,
+                   causal_target = jd$answer$data$causaltargets,
+                   causal_checked = jd$answer$data$causaldata,
+                   causal_strengths = jd$answer$data$causaldata_strengths)
+  cd.raw <- bind_rows(cd.raw,cd.subj)
+  
+  #data frame for demographics
+  dd.subj <- data.frame(workerid = jd$WorkerId,
+                   age = jd$answer$data$demographics)
+  dd.raw <- bind_rows(dd.raw,dd.subj)
+}
+
+# Number of participants
+length(unique(id.raw$workerid))
+```
+
+#### Data exclusion / filtering
+```{r}
+#remove attention check rows 
+cd = cd.raw %>%
+  filter(causal_target != "attention_check") %>%
+  rename(identity_feature = causal_target) #rename to match feature coulum in id
+
+##Exclusion criteria 1: Failing one or both attention checks 
+attn_check = cd.raw %>%
+  group_by(workerid) %>%
+  filter(causal_target == "attention_check") %>%
+  mutate(attn_score = if_else(causal_checked == "pass",1,0)) %>%
+  summarise(attn_score = sum(attn_score)) #score of 2 means that participants passed both checks
+
+attn_check_fail = subset(attn_check,attn_check$attn_score < 2) #table of participants who failed attention check
+
+cd = cd[!(cd$workerid %in% attn_check_fail$workerid),] 
+#remove participants who failed attention check
+
+##Exclusion criteria 2: Responding with all same ratings in identity task
+ratings_check_fail = id.raw %>%
+  group_by(workerid) %>%
+  summarise(sd = sd(identity_ratings)) %>%
+  filter(sd == 0)
+
+id = id.raw[!(id.raw$workerid %in% ratings_check_fail$workerid),] #remove participants
+```
+
+#### Prepare data for analysis - create columns etc.
+```{r}
+#create new column that holds number of features that were checked for each target feature
+cd_counts_checked = cd %>%
+  group_by(workerid, identity_feature) %>%
+  filter(causal_checked != "none") %>%
+  mutate(count = n())
+
+#for "none" responses, put "0" in the new column
+cd_counts_none = cd %>%
+  group_by(workerid, identity_feature) %>%
+  filter(causal_checked == "none") %>%
+  mutate(count = 0)
+
+#join these two data frames 
+cd_counts = full_join(cd_counts_checked,cd_counts_none)
+
+#final data frame 
+cd_counts_final = cd_counts %>%
+  group_by(workerid, identity_feature) %>%
+  distinct(identity_feature, .keep_all = TRUE) %>% #just one row for each feature
+  select(workerid, identity_feature,count)
+
+identity_causal = full_join(id,cd_counts_final) #combine identity ratings and causal df
+
+#fix identity_causal frame
+identity_causal$identity_ratings = as.numeric(identity_causal$identity_ratings)
+identity_causal = rename(identity_causal, num_connections = count)
+
+#make table displaying mean number of connections and mean disruption rating for each feature
+identity_causal_tbl = identity_causal %>%
+  group_by(identity_feature) %>%
+  summarize(mean_rating = mean(identity_ratings),
+            mean_connections = mean(num_connections))
+```
+
+### Confirmatory analysis
+
+The analyses as specified in the analysis plan.  
+*Side-by-side graph with original graph is ideal here*
+No relevant graph was provided.
+
+**Individual-level correlations.**
+```{r}
+alpha=.05
+z_critical = qnorm(alpha/2, lower.tail=FALSE)
+
+#take individual correlations, find rho and p, and fisher transform rhos 
+indiv_cor = identity_causal %>%
+  group_by(workerid) %>%
+  mutate(r = cor.test(identity_ratings,num_connections)$estimate,
+         p = cor.test(identity_ratings,num_connections)$p.value) %>%
+  distinct(workerid, .keep_all = TRUE) %>%
+  ungroup() %>%
+  mutate(fisher_z = fisherz(r)) #fisher transform on rhos
+indiv_cor$fisher_z
+
+t.test(indiv_cor$fisher_z) #one-sample t-test
+  
+indiv_cor_table = indiv_cor %>%
+  summarise(num = length(workerid),
+            mean_indiv_r = mean(r),
+            sem_indiv_r = sd(r)/sqrt(num),
+            low_95 = mean_indiv_r - (sem_indiv_r * z_critical),
+            upp_95 = mean_indiv_r + (sem_indiv_r * z_critical))
+
+indiv_cor_table
+```
+
+###Exploratory analyses
+**Aggregate-level correlation.**
+```{r}
+#aggregate-level spearman correlation
+aggregate.test = cor.test(identity_causal_tbl$mean_rating,identity_causal_tbl$mean_connections, method = "spearman")
+aggregate.test
+
+#scatter plot 
+ggplot(identity_causal_tbl,aes(mean_rating,mean_connections)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  ylab("Number of Causal Connections") +
+  xlab("Disruption Ratings (0-100)") +
+  ylim(0,5)+
+  xlim(0,100)+
+  theme_bw()
+```
+
+**Linear Mixed-Effects Model.**
+```{r}
+key.lme = lmer(identity_ratings ~ num_connections + (1|workerid) + (1|identity_feature), data=identity_causal)
+
+summary(key.lme)
+```
+
+
+
+## Discussion
+
+### Summary of Replication Attempt
+
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+### Commentary
+
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
