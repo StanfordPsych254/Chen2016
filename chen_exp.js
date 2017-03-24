@@ -13,6 +13,7 @@ target_list.unshift("intro")
 // Shows slides. We're using jQuery here - the **$** is the jQuery selector function, which takes as input either a DOM element or a CSS selector string.
 function showSlide(id) {
   // Hide all slides
+  $('html,body').scrollTop(0);
 	$(".slide").hide();
 	// Show just the slide we want to show
 	$("#"+id).show();
@@ -22,24 +23,32 @@ function showSlide(id) {
 function checkCompleted(phase) {
 if (phase == "identity") {
     getRatings(); 
+    var filledIn = true;
 
-  for (i = 0; i < experiment.identitydata.length; i++) {
+  for (i = 0; i < 16; i++) {
 
   if (experiment.identitydata[i] == null) {
-    experiment.identitydata = [];
-$("#noresponse_att").html('<font color="red">' + 
+    $("#noresponse_att").html('<font color="red">' + 
            'Please make a response!' + 
            '</font>');
-break;
+    filledIn = false;
+
+       break;
+
     }
    else {
     }
   }
 }
+
+if (filledIn == true) {
+  startexp();
+}
 }
 
 // Save ratings in the identity disruption task
 function getRatings() {
+       experiment.identitydata = [];
 
 elementlist = ['feature1_rating', 'feature2_rating','feature3_rating','feature4_rating',
               'feature5_rating', 'feature6_rating', 'feature7_rating', 'feature8_rating',
@@ -49,7 +58,6 @@ elementlist = ['feature1_rating', 'feature2_rating','feature3_rating','feature4_
 for (e = 0; e < elementlist.length; e++) {
 element = elementlist[e];
 featrating = document.getElementById(element).value
-
 experiment.identitydata.push(featrating);
 }
 }
@@ -85,11 +93,11 @@ if (answered < ids_list.length) {
            'Please make a response!' + 
            '</font>');
 }
+
 else {
 experiment.next();
 
 }
-
 }
 
 function updateTextInput(val,ID) {
@@ -297,6 +305,7 @@ function getStrengths(feature) {
       '<p class="block-text">You reported that your <b><span id="TargetFeature'+a+
       '">{{}}</span></b> causes your <b><span id = "CauseFeature'+a+'">{{}}</span></b>. What is the strength of this causal relationship? </p>\n' +
       '<form align = "left" id="strengths'+a+'" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">' +
+        '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="0">0-None (no relationship)<br>' +
         '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="1">1-weak<br>' +
         '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="2">2-moderate<br>' +
         '<input type="radio" name="strength_feat" id = "cold_fatigue'+i+'" value="3">3-strong<br>' +
@@ -319,7 +328,7 @@ function getStrengths(feature) {
     });
 
   errorMessDiv.html('<div <tr><td align="center">\n' +
-      '<div id="errorStrengths_att"> </div>\n' +
+      '<div id="errorStrengths_att"></div>\n' +
       '</td></tr>\n' +
       '<br><br>');
 
@@ -505,6 +514,7 @@ var experiment = {
   //MapFirst = Causal Connections task, Identity Disruption task 
 
 next: function() {
+
 if (experiment.order_causaltask.length == 0) {
   startexp();
 return;

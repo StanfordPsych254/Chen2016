@@ -31,7 +31,7 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
     <img src="images/stanford.png" height="46" width="360" alt="Stanford University">
   </div>
 
-	<p class="block-text">Welcome to the experiment! In this experiment, you will tell us about how the characteristics of your identity fit together to make up who you are. Specifically, we're interested in whether you think that some parts of your identity cause other parts of your identity. Before you do that, we will have you practice doing this task with another concept. Please press the continue button to proceed.  </p>
+	<p class="block-text">Welcome to the experiment! <b> You must be using the Google Chrome browser for this experiment. </b> In this experiment, you will tell us about how the characteristics of your identity fit together to make up who you are. Specifically, we're interested in whether you think that some parts of your identity cause other parts of your identity. Before you do that, we will have you practice doing this task with another concept. Please press the continue button to proceed.  </p>
 
 		<p>Click the button below when you are ready to begin the experiment.</p>	
 
@@ -42,7 +42,7 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
  -->
 
 	<!-- Legal blurb that we're required to show. -->
-	<p class="block-text" id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology. If you have questions about this research, please contact us at stanfordpsych254@gmail.com. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you. We have recently been made aware that your public Amazon.com profile can be accessed via your worker ID if you do not choose to opt out. If you would like to opt out of this feature, you may follow instructions available <a href="http://www.amazon.com/gp/help/customer/display.html?nodeId=16465241">here</a>.</p>
+	<p class="block-text" id="legal">By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology. If you have questions about this research, please contact us at stanfordpsych254@gmail.com. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you. We have recently been made aware that your public Amazon.com profile can be accessed via your worker ID if you do not choose to opt out. If you would like to opt out of this feature, you may follow instructions available <a href="http://www.amazon.com/gp/help/customer/display.html?nodeId=16465241">here</a>.</p>
 </div>
 
 <!-- IDENTITY DISRUPTION TASK -->
@@ -58,7 +58,7 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 <center>
 <!-- List 16 features with rating scales -->
 <p id = "feature1">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100<br><br>
 <div id="feature1_rating" value=""> <br><br>
 
 
@@ -139,7 +139,7 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 
 <!-- <button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); ">Continue</button>	
  --> 
- <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');startexp();">Continue</button><br><br>  
+ <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');">Continue</button><br><br>  
 <tr><td align="center">
       <div id="noresponse_att"> </div>
       </td></tr>
@@ -240,7 +240,8 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 
 <!-- <button style = text-align: center type="button" id = "nextButton_Att" onclick="getRatings(); ">Continue</button>  
  --> 
- <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');startexp()">Continue</button><br><br>  
+ <button style = text-align: center type="button" id = "nextButton_Att" onclick="checkCompleted('identity');">Continue</button><br><br>  
+
 <tr><td align="center">
       <div id="noresponse_att"> </div>
       </td></tr>
@@ -490,6 +491,8 @@ There are no right or wrong answers. We are interested in how you think the feat
     <input type="checkbox"><span id = "feature14_c">Level of Wholesomeness</span><br>
     <input type="checkbox"><span id = "feature15_c">Memories of Important Life Milestones</span><br>
     <input type="checkbox"><span id = "feature16_c">Reliability</span><br>
+    <input type="checkbox"><span id = "feature17_c">None of these features are caused by my ability to read</span><br>
+
     </form>
 
     <button type="button" onclick="this.blur();saveChecked('caused_boxes_attn');">Continue</button>
@@ -502,6 +505,7 @@ There are no right or wrong answers. We are interested in how you think the feat
 How old are you?: <input type="text" name="Age" value=""><br>
 What is your native/first language?: <input type="text" name="Language" value=""><br>
 What is your ethnicity?: <select name="Ethnicity">
+	<option value="noresponse">No Response </option>
     <option value="white">White</option>
     <option value="hispanic">Hispanic or Latino</option>
     <option value="asian">Asian/Pacific Islander</option>
@@ -511,12 +515,14 @@ What is your ethnicity?: <select name="Ethnicity">
 	</select>
 	<br><br>
 What is your gender?: <select name="Gender">
+	<option value="noresponse">No Response </option>
 	<option value="male">Male</option>
     <option value="female">Female</option>
-	<option value="other">Other/Prefer not to say</option>
+	<option value="other">Other</option>
 	</select>
-
 <br><br>
+Which browser were you using?: <input type="text" name="Browser" value=""></br><br>
+
 Did you run into any issues?: <input type="text" name="Issues" value=""><br>
 
 	<button type="button" onclick="submitDemographics();experiment.end();">Submit</button>
