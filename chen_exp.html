@@ -48,9 +48,6 @@ This is code for a replication of Chen et al.'s study, Beliefs About the Causal 
 <!-- IDENTITY DISRUPTION TASK -->
 <div class="slide" id="ID_self">
 
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
-
 	<p class="block-text">Before you do the practice, we would first like to understand how a change in each of the features below would change your identity. That is, for each of the features below, imagine that you are completely different on that dimension (e.g., for height, if you are tall, imagine that something changed so that you are now short). Do you think that you would still be the same person you are now, or would you be a different person? <br><br>
 
 Please indicate your answer with each of the sliders below where 0 means "I would be the exact same person" and 100 means "I would be a completely different person." <br><br>
@@ -58,81 +55,81 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 <center>
 <!-- List 16 features with rating scales -->
 <p id = "feature1">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100<br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div id="feature1_rating" value=""> <br><br>
 
 
 <p id = "feature2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature2_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature2_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature2_rating" value=""> <br><br> 
 
 
 <p id = "feature3">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature3_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature3_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person) <br><br>
 <div type="text" id="feature3_rating" value=""> <br><br> 
 
 
 <p id = "feature4">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature4_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature4_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature4_rating" value=""> <br><br> 
 
 
 <p id = "feature5">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature5_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature5_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature5_rating" value=""> <br><br> 
 
 
 <p id = "feature6">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature6_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person)<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature6_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature6_rating" value=""> <br><br> 
 
 
 <p id = "feature7">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature7_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person)<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature7_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature7_rating" value=""> <br><br> 
 
 
 <p id = "feature8">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature8_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature8_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature8_rating" value=""> <br><br> 
 
 
 <p id = "feature9">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature9_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature9_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature9_rating" value=""> <br><br> 
 
 
 <p id = "feature10">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature10_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature10_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature10_rating" value=""> <br><br> 
 
 
 <p id = "feature11">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature11_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature11_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature11_rating" value=""> <br><br> 
 
 <p id = "feature12">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature12_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature12_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature12_rating" value=""> <br><br> 
 
 
 <p id = "feature13">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature13_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature13_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature13_rating" value=""> <br><br> 
 
 
 <p id = "feature14">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature14_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature14_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature14_rating" value=""> <br><br> 
 
 
 <p id = "feature15">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature15_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature15_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person) <br><br>
 <div type="text" id="feature15_rating" value=""> <br><br>
 
 
 <p id = "feature16">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature16_rating" value=""> <br><br>
 
 </center>
@@ -149,9 +146,6 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 <!-- IDENTITY DISRUPTION 2 TASK -->
 <div class="slide" id="ID_self_2">
 
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
-
   <p class="block-text">We would now like to understand how a change in each of the features below would change your identity. That is, for each of the features below, imagine that you are completely different on that dimension (e.g., for height, if you are tall, imagine that something changed so that you are now short). Do you think that you would still be the same person you are now, or would you be a different person? <br><br>
 
 Please indicate your answer with each of the sliders below where 0 means "I would be the exact same person" and 100 means "I would be a completely different person." <br><br>
@@ -159,81 +153,81 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 <center>
 <!-- List 16 features with rating scales -->
 <p id = "feature1_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature1_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div id="feature1_rating" value=""> <br><br>
 
 
 <p id = "feature2_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature2_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature2_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature2_rating" value=""> <br><br> 
 
 
 <p id = "feature3_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature3_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature3_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature3_rating" value=""> <br><br> 
 
 
 <p id = "feature4_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature4_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature4_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature4_rating" value=""> <br><br> 
 
 
 <p id = "feature5_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature5_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature5_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature5_rating" value=""> <br><br> 
 
 
 <p id = "feature6_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature6_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature6_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature6_rating" value=""> <br><br> 
 
 
 <p id = "feature7_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature7_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature7_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature7_rating" value=""> <br><br> 
 
 
 <p id = "feature8_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature8_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature8_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature8_rating" value=""> <br><br> 
 
 
 <p id = "feature9_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature9_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature9_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature9_rating" value=""> <br><br> 
 
 
 <p id = "feature10_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature10_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature10_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature10_rating" value=""> <br><br> 
 
 
 <p id = "feature11_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature11_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature11_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature11_rating" value=""> <br><br> 
 
 <p id = "feature12_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature12_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature12_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature12_rating" value=""> <br><br> 
 
 
 <p id = "feature13_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature13_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature13_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature13_rating" value=""> <br><br> 
 
 
 <p id = "feature14_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature14_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature14_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature14_rating" value=""> <br><br> 
 
 
 <p id = "feature15_2">{{}} </p>
-0<input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature15_rating')" class = "feature_scale" id = "aesthetic_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput1" min="0" max="100" onchange="updateTextInput(this.value,'feature15_rating')" class = "feature_scale" id = "aesthetic_feat">100 (Different Person)<br><br>
 <div type="text" id="feature15_rating" value=""> <br><br>
 
 
 <p id = "feature16_2">{{}} </p>
-0<input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 <br><br>
+0 (Same Person) <input type="range" name="rangeInput2" min="0" max="100" onchange="updateTextInput(this.value,'feature16_rating')" class = "feature_scale" id = "fam_mem_feat">100 (Different Person)<br><br>
 <div type="text" id="feature16_rating" value=""> <br><br>
 
 </center>
@@ -252,17 +246,15 @@ Please indicate your answer with each of the sliders below where 0 means "I woul
 <!-- Instructions Page -->
 <div class="slide" id="causal_practice1">
 
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">Let's start the practice now! Below is a diagram of how the features of being sick fit together. The arrows represent causal relationships such that the items that the arrows point to are caused by the items at the beginning of the arrow. In the diagram below there are a series of arrows that represent the following causal relationships:<br><br>
 
 Arrow #1: Catching a cold causes a fever<br>
 Arrow #2: A fever causes fatigue<br>
 Arrows #3 and #4: Being fatigued and catching a cold cause each other<br><br>
 
-You will now practice the task with the concept diagrammed above. In this task we will present each of the features one-by-one and ask which of the other features it causes. Please answer the following questions in order to express the causal relationships in the diagram above. The diagram will appear on the following screens so there is no need to memorize it. <br><br>
-
 	  <img src="images/practice_image.png" height="200" width="270" alt="Stanford University"><br><br>
+
+You will now practice the task with the concept diagrammed above. In this task we will present each of the features one-by-one and ask which of the other features it causes. Please answer the following questions in order to express the causal relationships in the diagram above. The diagram will appear on the following screens so there is no need to memorize it. <br><br>
 
 	<button type="button" onclick="this.blur(); practice('page2')">Continue</button>	</p>
 </div>
@@ -271,8 +263,6 @@ You will now practice the task with the concept diagrammed above. In this task w
 <!-- Page 2: Practice Q1 - Catch a Cold -->
 <div class="slide" id="causal_practice2">
 
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">Think about the feature: Catch a Cold. <br><br>
 
 Which of the following features are caused by 'Catch a Cold'? Please select all that apply.  <br><br>
@@ -296,8 +286,6 @@ Which of the following features are caused by 'Catch a Cold'? Please select all 
 <!-- Page 3: Practice Q1 - Strengths -->
 <div class="slide" id="fatigue_yes_fever_yes">
 
-  <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">That's correct! According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
 
 Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
@@ -326,8 +314,6 @@ You reported that Catching a Cold causes Fatigue. What is the strength of this c
 <!-- Page 3 -->
 <div class="slide" id="fatigue_no_fever_no">
 
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">That's incorrect. According to the diagram Catching a Cold causes both Fatigue and Fever.<br><br>
 
 Now for each of these causal relationships you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship).<br><br> 
@@ -359,8 +345,6 @@ You reported that Catching a Cold causes Fatigue. What is the strength of this c
 <!-- Page 4 -->
 <div class="slide" id="causal_practice4">
 
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">Think about the feature: Fever. <br><br>
 
 Which of the following features are caused by 'Fever'? Please select all that apply.  <br><br>
@@ -381,8 +365,6 @@ Which of the following features are caused by 'Fever'? Please select all that ap
 <!-- Page 5 -->
 <div class="slide" id="fatigue_yes_cold_no">
 
-  <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">That's correct! According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
 
 Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
@@ -395,14 +377,12 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
   <input type="radio" name="strength_feat" id = "cold_fever" value="3">3-strong<br>
 </form>
 
-<button type="button" onclick="this.blur();getPracticeAnswers('strength_fever_fatigue1'); experiment.next()">Continue</button>
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_fever_fatigue1'); practice('page6')">Continue</button>
  </p>
 </div>
 
 <div class="slide" id="fatigue_no_cold_yes">
 
-  <div style="width: 500px; margin: 0 auto; text-align: left; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
 	<p class="block-text">That's incorrect. According to the diagram Fever causes Fatigue and does not cause one to Catch a Cold.  <br><br>
 
 Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
@@ -415,13 +395,70 @@ You reported that a Fever causes Fatigue. What is the strength of this causal re
   <input type="radio" name="strength_feat" id = "cold_fever" value="3">3-strong<br>
 </form>
 
-<button type="button" onclick="this.blur();getPracticeAnswers('strength_fever_fatigue2');experiment.next()">Continue</button>
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_fever_fatigue2');practice('page6')">Continue</button>
  </p>
 </div>
 
+<div class="slide" id="causal_practice6">
+
+	<p class="block-text">Think about the feature: Fatigue. <br><br>
+
+Which of the following features are caused by 'Fever'? Please select all that apply.  <br><br>
+
+<form action="checkbox_form.asp" method="get" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+<input type="checkbox" name="feature" value="Cold" id = "Cold2_feat">Catch a Cold<br>
+<input type="checkbox" name="feature" value="Fatigue" id = "Fever2_feat">Fever<br>
+</form>
+
+ <br><br>
+
+	  <center><img src="images/practice_image.png" height="200" width="270" alt="Stanford University"></center><br><br>
+
+<button type="button" onclick="this.blur(); getCheckbox('Cold2_feat','Fever2_feat'); practice('page7')">Continue</button>
+ </p>
+</div>
+
+
+<!-- Page 5 -->
+<div class="slide" id="cold_yes_fever_no">
+
+	<p class="block-text">That's correct! According to the diagram Fatigue causes one to Catch a Cold.     <br><br>
+
+Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
+
+You reported that Fatigue causes one to Catch a Cold. What is the strength of this causal relationship?   There's no right answer to this question. Simply pick the answer you think is correct.    <br><br>
+
+<form id="strength_fatigue_cold1" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input type="radio" name="strength_feat" id = "fatigue_cold" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "fatigue_cold" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "fatigue_cold" value="3">3-strong<br>
+</form>
+
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_fatigue_cold1'); experiment.next()">Continue</button>
+ </p>
+</div>
+
+<div class="slide" id="cold_no_fever_yes">
+
+	<p class="block-text">That’s incorrect. According to the diagram Fatigue causes one to Catch a Cold and does not cause a Fever so only Catch a Cold should have been selected.     <br><br>
+
+Now you will rate the strength of the causal relationship between the two features on a scale of 1 to 3 (1 = mild relationship, 2 = moderate relationship, 3 = strong relationship). <br><br>
+
+You reported that a Fatigue causes one to Catch a Cold. What is the strength of this causal relationship? There's no right answer to this question. Simply pick the answer you think is correct.    <br><br>
+
+<form id="strength_fatigue_cold2" action="" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
+  <input type="radio" name="strength_feat" id = "fatigue_cold" value="1">1-weak<br>
+  <input type="radio" name="strength_feat" id = "fatigue_cold" value="2">2-moderate<br>
+  <input type="radio" name="strength_feat" id = "fatigue_cold" value="3">3-strong<br>
+</form>
+<button type="button" onclick="this.blur();getPracticeAnswers('strength_fatigue_cold2');experiment.next()">Continue</button>
+ </p>
+</div>
+
+
+
 <div class ="slide" id="connections_intro">
-<div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
+<br>
   <p class="block-text">We are now done with practice! You will now do the same task for the features of your personal identity. Your personal identity is what defines you as a person and what makes you the person you are.    
 
 There are no right or wrong answers. We are interested in how you think the features of your identity are causally related. You should indicate as many or as few causal relationships as you see fit.</p> 
@@ -430,11 +467,12 @@ There are no right or wrong answers. We are interested in how you think the feat
  </div>
 
 <div class="slide" id="connections_page">
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
-	<p class="block-text">Think about your <b><span id="TargetFeature">{{}}</span></b>. </p> 
+<br>
+	<p class="block-text">Think about your <b><span id="TargetFeature">{{}}</span></b>. </p>
 
 	<p class="block-text">Which of the other features of your personal identity listed below, if any, are caused by your <b><span id="TargetFeature1">{{}}</span></b>? You may select as many or as few features as you see fit. In the below list, please select all the features that you believe are caused by the above feature.     </p>
+
+	<p class="block-text"> My <b><span id="TargetFeature2">{{}}</span></b> has a causal effect on my: </p>
 
 	<form id = "caused_boxes" style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
    	<input type="checkbox"><span id = "feature2_c">{{}} </span><br>
@@ -470,12 +508,11 @@ There are no right or wrong answers. We are interested in how you think the feat
  </div>
 
  <div class="slide" id="attncheck_page">
-  <div style="width: 500px; margin: 0 auto; text-align: center; background-color: #8C1516; padding: 20px 15px 10px 10px">
-  </div>
+<br>
   <p class="block-text">The results of the survey and our research depend critically on your answers and the attention you pay to the questions. We appreciate the time you take to participate in our survey! To make sure you are reading the questions carefully, for this question, we would like you not to select any of the below options Simply hit the arrow to continue in the survey and do not check any of the boxes. </p>
 
   <form id = caused_boxes_attn style="width: 500px; margin: 0 auto; text-align: left; padding: 20px 15px 10px 10px">
-    <input type="checkbox"><span id = "feature1_c">Aesthetic</span><br>
+    <input type="checkbox"><span id = "feature1_c">Aesthetic Preferences</span><br>
     <input type="checkbox"><span id = "feature2_c">Cherished Memories of Time Spent with Parents/Family</span><br>
     <input type="checkbox"><span id = "feature3_c">Degree of Shyness</span><br>
     <input type="checkbox"><span id = "feature4_c">Favorite Hobbies/Activities</span><br>

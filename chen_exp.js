@@ -4,8 +4,10 @@
 
 // ASSIGN VARIABLES
 
-var feature_list = shuffle(["Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]); //for identity task 
-var target_list = shuffle(["attncheck1","attncheck2","Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]); //for causal connections task
+var feature_list = shuffle(["Aesthetic Preferences","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]); //for identity task 
+var target_list = shuffle(["attncheck1","attncheck2","Aesthetic Preferences","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]); //for causal connections task
+var caused_full_list = feature_list.slice(0)
+
 target_list.unshift("intro")
 
 // HELPER FUNCTIONS
@@ -216,18 +218,31 @@ if (pageNum == "page5") {
   showSlide("fatigue_no_cold_yes")
 }
 }
+
+if (pageNum == "page6") {
+  showSlide("causal_practice6")
 }
 
+if (pageNum == "page7") {
+  if ((data["Cold2_feat"] == true) & (data["Fever2_feat"] == false)) {
+  showSlide("cold_yes_fever_no")
+  }
+  if ((data["Cold2_feat"] == false) | (data["Fever2_feat"] == true)) {
+  showSlide("cold_no_fever_yes")
+}
+} 
 
 
+
+}
 
 function connections(feature) {
 showSlide("connections_page");
 $("#error_att").html('<font color="red">' + 
            '' + 
            '</font>');
-caused_list = shuffle(["Aesthetic","Cherished Memories of Time Spent with Parents/Family","Degree of Shyness","Favorite Hobbies/Activities","Goals for Personal Life","Height","Important Childhood Memories","Intelligence Level","Knowledge of Math","Knowledge of Music","Level of Honesty","Level of Hunger","Level of Loyalty","Level of Wholesomeness","Memories of Important Life Milestones","Reliability"]);
 
+caused_list = caused_full_list.slice(0)
 targetfeat = feature;
 
 for (k = 0; k < caused_list.length; k++) {
@@ -236,10 +251,10 @@ for (k = 0; k < caused_list.length; k++) {
   }
 }
 
-caused_list = shuffle(caused_list);
-
     $("#TargetFeature").text(targetfeat);
     $("#TargetFeature1").text(targetfeat);
+    $("#TargetFeature2").text(targetfeat);
+
 
     $("#feature2_c").text(caused_list[0]);
     $("#feature3_c").text(caused_list[1]);
