@@ -15,7 +15,7 @@ output:
 
 ##Introduction
 
-The authors were interested in the age-old question of what makes people who they are, and people's beliefs about the structure of personal identity for themselves and for others. Specifically, they proposed that people's representations of personal identity incorporate the causal relationships among features in identity. One possibility is that people reason about their self-concept similarly to how they reason about concepts in general, such that more causally central features are more defining of identity.
+The authors were interested in the age-old question of what makes people who they are, and how people's beliefs about personal identity are structured. Specifically, they proposed that people's representations of personal identity incorporate the causal relationships among features of identity. One possibility is that people reason about their self-concept similarly to how they reason about concepts in general, such that more causally central features are more defining of identity.
 
 In Experiment 1, subjects were shown 16 features of personal identity and were asked for each feature to: (1) rate how disruptive it would be to their identity if the feature were to change in a meaningful way, and (2) indicate which other features are caused by that feature and how strong the causal relationship is. Subjects either thought about their own identity (Self condition), a close other's identity (Close-other condition), or a generic other's identity (Generic-other condition). Here, we specifically test the the Self condition. The target finding for replication is that features with more causal connections were rated as being more disruptive to identity.
 
@@ -46,7 +46,7 @@ We decided to run the replication with N=65 for 80% power.
 
 ###Planned Sample
 
-The planned sample size is 26, and participants will be English-speaking adults from the United States. According to the original study, participants were excluded due to a scripting error (5), failing attention checks (4), providing identical answers to every question (2). We will use these same criteria for excluding participants.
+The planned sample size is 65, and participants will be English-speaking adults from the United States. According to the original study, participants were excluded due to a scripting error (5), failing attention checks (4), providing identical answers to every question (2). We will use these same criteria for excluding participants.
 
 ###Materials
 
@@ -97,17 +97,15 @@ Table 2 shows a positive correlation between disruption ratings and causal centr
 
 There are minimal differences between the original study and the replication. In the identity task, it was unclear how participants provide answers (e.g., via a rating scale, or a write-in text-box). Here, we've used a sliding scale from 0 to 100.
 
-<!-- ### Methods Addendum (Post Data Collection) -->
+### Methods Addendum (Post Data Collection)
 
-<!-- You can comment this section out prior to final report with data collection. -->
+#### Actual Sample
+60 adults (20 female, M_Age(SD) = 38.58(12.33), 20 - 66) were recruited from Amazon's Mechanical Turk. An additional 10 participants were recruited but excluded due to technical error (4), failing attention checks (4), and providing the same response for all questions in the identity task (1).
 
-<!-- #### Actual Sample -->
-<!--   Sample size, demographics, data exclusions based on rules spelled out in analysis plan -->
+#### Differences from pre-data collection methods plan
+None.
 
-<!-- #### Differences from pre-data collection methods plan -->
-<!--   Any differences from what was described as the original plan, or “none”. -->
-
-<!-- ##Results -->
+##Results
 
 
 ### Data preparation
@@ -141,31 +139,31 @@ for (f in files) {
   jd <- fromJSON(paste(readLines(jf), collapse=""))
   
   #data frame for identity data
+  
+
   id.subj <- data.frame(workerid = jd$WorkerId, 
                    identity_ratings = jd$answer$data$identitydata,
                    identity_feature = jd$answer$data$order_identitytask)
   id.raw <- bind_rows(id.raw, id.subj)
  
-  #data frame for practice data
-  pd.subj <- data.frame(workerid = jd$WorkerId, 
-                   practice_data = jd$answer$data$practicedata)
-  pd.raw <- bind_rows(pd.raw, pd.subj)
+#  data frame for practice data
+   pd.subj <- data.frame(workerid = jd$WorkerId, 
+                    practice_data = jd$answer$data$practicedata)
+   pd.raw <- bind_rows(pd.raw, pd.subj)
   
-  #data frame for causal data
+#  data frame for causal data
   cd.subj <- data.frame(workerid = jd$WorkerId,
-                   causal_target = jd$answer$data$causaltargets,
-                   causal_checked = jd$answer$data$causaldata,
-                   causal_strengths = jd$answer$data$causaldata_strengths)
-  cd.raw <- bind_rows(cd.raw,cd.subj)
+                    causal_target = jd$answer$data$causaltargets,
+                    causal_checked = jd$answer$data$causaldata,
+                    causal_strengths = jd$answer$data$causaldata_strengths)
+   cd.raw <- bind_rows(cd.raw,cd.subj)
+  
   
   #data frame for demographics
-  dd.subj <- data.frame(workerid = jd$WorkerId,
-                   age = jd$answer$data$demographics)
-  dd.raw <- bind_rows(dd.raw,dd.subj)
+   dd.subj <- data.frame(workerid = jd$WorkerId,
+                    age = jd$answer$data$demographics)
+   dd.raw <- bind_rows(dd.raw,dd.subj)
 }
-
-# Number of participants
-length(unique(id.raw$workerid))
 ```
 
 #### Data exclusion / filtering
@@ -184,7 +182,6 @@ attn_check = cd.raw %>%
 
 attn_check_fail = subset(attn_check,attn_check$attn_score < 2) #table of participants who failed attention check
 
-cd = cd[!(cd$workerid %in% attn_check_fail$workerid),] 
 #remove participants who failed attention check
 
 ##Exclusion criteria 2: Responding with all same ratings in identity task
@@ -194,6 +191,9 @@ ratings_check_fail = id.raw %>%
   filter(sd == 0)
 
 id = id.raw[!(id.raw$workerid %in% ratings_check_fail$workerid),] #remove participants
+id = id.raw[!(id.raw$workerid %in% attn_check_fail$workerid),]
+cd = cd[!(cd$workerid %in% attn_check_fail$workerid),] 
+cd = cd[!(cd$workerid %in% ratings_check_fail$workerid),]
 ```
 
 #### Prepare data for analysis - create columns etc.
@@ -224,6 +224,7 @@ identity_causal = full_join(id,cd_counts_final) #combine identity ratings and ca
 #fix identity_causal frame
 identity_causal$identity_ratings = as.numeric(identity_causal$identity_ratings)
 identity_causal = rename(identity_causal, num_connections = count)
+identity_causal = na.omit(identity_causal)
 
 #make table displaying mean number of connections and mean disruption rating for each feature
 identity_causal_tbl = identity_causal %>%
@@ -233,11 +234,6 @@ identity_causal_tbl = identity_causal %>%
 ```
 
 ### Confirmatory analysis
-
-The analyses as specified in the analysis plan.  
-*Side-by-side graph with original graph is ideal here*
-No relevant graph was provided.
-
 **Individual-level correlations.**
 ```{r}
 alpha=.05
@@ -248,14 +244,19 @@ indiv_cor = identity_causal %>%
   group_by(workerid) %>%
   mutate(r = cor.test(identity_ratings,num_connections)$estimate,
          p = cor.test(identity_ratings,num_connections)$p.value) %>%
+  select(workerid, r, p) %>%
   distinct(workerid, .keep_all = TRUE) %>%
-  ungroup() %>%
+#  ungroup() %>%
   mutate(fisher_z = fisherz(r)) #fisher transform on rhos
-indiv_cor$fisher_z
 
-t.test(indiv_cor$fisher_z) #one-sample t-test
-  
+#excluding participant who gave 1 connection for all features
+indiv_cor = na.omit(indiv_cor)
+
+indiv_cor_t = t.test(indiv_cor$fisher_z) #one-sample t-test
+indiv_cor_t  
+
 indiv_cor_table = indiv_cor %>%
+  ungroup() %>%
   summarise(num = length(workerid),
             mean_indiv_r = mean(r),
             sem_indiv_r = sd(r)/sqrt(num),
@@ -265,8 +266,11 @@ indiv_cor_table = indiv_cor %>%
 indiv_cor_table
 ```
 
+We test the correlation between disruption ratings and causal centrality and find the following result: rs = `r round(indiv_cor_table$mean_indiv_r,2)`, 95% CI [`r round(indiv_cor_table$low_95,2)`, `r round(indiv_cor_table$upp_95,2)`], t(`r indiv_cor_t$parameter`) = `r round(indiv_cor_t$statistic,2)`, p < .001.
+
 ###Exploratory analyses
-**Aggregate-level correlation.**
+**Aggregate-level correlation.** In addition to the key result, the authors also performed a group-level correlation of disruption ratings and causal centrality as evidence that people reason about the causal structure of personal identity. They collapsed by item across subjects to calculate a mean disruption rating and a mean causal centrality score for each feature. Then, a spearman correlation was run on these aggregate disruption ratings and causal centrality scores. 
+
 ```{r}
 #aggregate-level spearman correlation
 aggregate.test = cor.test(identity_causal_tbl$mean_rating,identity_causal_tbl$mean_connections, method = "spearman")
@@ -282,22 +286,52 @@ ggplot(identity_causal_tbl,aes(mean_rating,mean_connections)) +
   xlim(0,100)+
   theme_bw()
 ```
+We test the correlation between mean disruption ratings (averaged across subjects) and mean causal centrality and find the following result: rs = `r round(aggregate.test$estimate,2)`, p = `r round(aggregate.test$p.value,3)`.
 
-**Linear Mixed-Effects Model.**
+**Linear Mixed-Effects Model.** Finally, we ask whether causal centrality predicts identity disruption ratings in a linear mixed-effects model with subject and feature as random effects. 
 ```{r}
-key.lme = lmer(identity_ratings ~ num_connections + (1|workerid) + (1|identity_feature), data=identity_causal)
+lme.test = lmer(identity_ratings ~ num_connections + (1|workerid) + (1|identity_feature), data=identity_causal)
 
-summary(key.lme)
+sum.lme.test = summary(lme.test)
+sum.lme.test
 ```
+In this linear-mixed effects model of identity disruption ratings with causal centrality as a main effect and subject and feature as random effects, we find the following result: causal centrality (est. = `r round(sum.lme.test$coefficients[2],2)`, t = `r round(sum.lme.test$coefficients[6],2)`).
 
+###Demographics
+```{r}
+dd = dd.raw[(dd.raw$workerid %in% cd$workerid),]
+dd = dd.raw[(dd.raw$workerid %in% indiv_cor$workerid),]
 
+dd = dd %>%
+  rename(age = age.value,
+        lang = age.value.1,
+        ethnicity = age.value.2,
+        gender = age.value.3) %>%
+  select(age, lang, ethnicity, gender) 
+
+dd$age = as.numeric(dd$age)
+dd$lang = factor(dd$lang)
+dd$ethnicity = factor(dd$ethnicity)
+dd$gender = factor(dd$gender)
+
+dd.age = dd %>%
+  summarise(mean_age = mean(age),
+            sd_age = sd(age),
+            min_age = min(age),
+            max_age = max(age))
+dd.age
+
+table(dd$gender)
+```
 
 ## Discussion
 
 ### Summary of Replication Attempt
 
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+The key analysis of interest was an individual-level Spearman correlation on disruption ratings and causal centrality (number of causal connections) for each feature. The authors found a positive correlation between disruption ratings and causal centrality, and indeed, we also found this result: rs = `r round(indiv_cor_table$mean_indiv_r,2)`, 95% CI [`r round(indiv_cor_table$low_95,2)`, `r round(indiv_cor_table$upp_95,2)`], t(`r indiv_cor_t$parameter`) = `r round(indiv_cor_t$statistic,2)`, p < .001. We consider this a successful replication. 
 
 ### Commentary
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+In addition to the individual-level spearman correlation, we also ran two exploratory analyses. In an aggregate-level correlation, we found a positive correlation between mean disruption ratings and causal centrality (rs = `r round(aggregate.test$estimate,2)`, p = `r round(aggregate.test$p.value,3)`). In a linear-mixed effects-model, we found that causal centrality significantly predicts disruption ratings (est. = `r round(sum.lme.test$coefficients[2],2)`, t = `r round(sum.lme.test$coefficients[6],2)`). These exploratory analyses provide additional support for the authors' claims. All in all, the results from this replication suggest that people do incorporate causal relationships between different features of identity into their self-concept.
+
+
