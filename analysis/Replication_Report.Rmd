@@ -10,9 +10,6 @@ output:
       collapsed: false
 ---
 
-<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
-
-
 ##Introduction
 
 The authors were interested in the age-old question of what makes people who they are, and how people's beliefs about personal identity are structured. Specifically, they proposed that people's representations of personal identity incorporate the causal relationships among features of identity. One possibility is that people reason about their self-concept similarly to how they reason about concepts in general, such that more causally central features are more defining of identity.
@@ -118,7 +115,7 @@ rm(list=ls())
 library(tidyr)
 library(dplyr)
 library(ggplot2)
-library(langcog) 
+#library(langcog) 
 library(rjson)
 library(lme4)
 library(psych)
@@ -126,7 +123,7 @@ library(psych)
 
 ####Import data
 ```{r, include=FALSE}
-path <- "/Users/SLL_labmanager/Dropbox/School/Class/Psych254/Chen2016/Projects/"
+path <- "/Users/masaba/Dropbox/School/Class/Psych254/Chen2016/Projects/"
 files <- dir(paste0(path,"mturk/production-results/"), 
              pattern = "*.json")
 id.raw <- data.frame() #for identity data
@@ -135,7 +132,7 @@ cd.raw <- data.frame() #for causal connections data
 dd.raw <- data.frame() #for demographics
 
 for (f in files) {
-  jf <- paste0(path, "mturk/production-results/",f)
+  jf <- paste0(path, "/mturk/production-results/",f)
   jd <- fromJSON(paste(readLines(jf), collapse=""))
   
   #data frame for identity data
