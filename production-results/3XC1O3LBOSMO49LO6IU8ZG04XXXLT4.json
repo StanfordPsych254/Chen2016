@@ -1,0 +1,166 @@
+{
+    "ApprovalTime": "2017-03-26T04:45:16Z",
+    "AutoApprovalTime": "2017-03-26T04:45:10Z",
+    "AssignmentId": "3XC1O3LBOSMO49LO6IU8ZG04XXXLT4",
+    "WorkerId": "A1A3TGZ7DKJWRW",
+    "answers": {
+        "data": {
+            "ids_causaldata": [
+                "strengths0causalRelations15"
+            ],
+            "causaldata": [
+                "none",
+                "none",
+                "none",
+                "none",
+                "Important Childhood Memories",
+                "none",
+                "none",
+                "Intelligence Level",
+                "none",
+                "none",
+                "none",
+                "pass",
+                "none",
+                "none",
+                "none",
+                "none",
+                "pass",
+                "Cherished Memories of Time Spent with Parents/Family"
+            ],
+            "phase_order": [
+                "MapFirst",
+                "ChangeFirst"
+            ],
+            "phase_order_temp": [],
+            "causaldata_strengths": [
+                "0",
+                "0",
+                "0",
+                "0",
+                "3",
+                "0",
+                "0",
+                "2",
+                "0",
+                "0",
+                "0",
+                "NA",
+                "0",
+                "0",
+                "0",
+                "0",
+                "NA",
+                "2"
+            ],
+            "identitydata": [
+                "14",
+                "67",
+                "57",
+                "17",
+                "38",
+                "28",
+                "0",
+                "74",
+                "26",
+                "39",
+                "90",
+                "0",
+                "24",
+                "4",
+                "34",
+                "0"
+            ],
+            "tempcausaldata": [
+                "Cherished Memories of Time Spent with Parents/Family"
+            ],
+            "temptarget": [
+                "Important Childhood Memories"
+            ],
+            "order_causaltask": [],
+            "causaltargets": [
+                "Aesthetic Preferences",
+                "Knowledge of Music",
+                "Reliability",
+                "Level of Wholesomeness",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Height",
+                "Memories of Important Life Milestones",
+                "Knowledge of Math",
+                "Degree of Shyness",
+                "Level of Hunger",
+                "Favorite Hobbies/Activities",
+                "attention_check",
+                "Level of Loyalty",
+                "Level of Honesty",
+                "Goals for Personal Life",
+                "Intelligence Level",
+                "attention_check",
+                "Important Childhood Memories"
+            ],
+            "order_identitytask": [
+                "Level of Loyalty",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Level of Wholesomeness",
+                "Goals for Personal Life",
+                "Reliability",
+                "Degree of Shyness",
+                "Level of Hunger",
+                "Level of Honesty",
+                "Favorite Hobbies/Activities",
+                "Important Childhood Memories",
+                "Memories of Important Life Milestones",
+                "Height",
+                "Knowledge of Math",
+                "Knowledge of Music",
+                "Intelligence Level",
+                "Aesthetic Preferences"
+            ],
+            "demographics": [
+                [
+                    {
+                        "name": "Age",
+                        "value": "27"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "english"
+                    },
+                    {
+                        "name": "Ethnicity",
+                        "value": "asian"
+                    },
+                    {
+                        "name": "Gender",
+                        "value": "male"
+                    },
+                    {
+                        "name": "Browser",
+                        "value": "Chrome"
+                    },
+                    {
+                        "name": "Issues",
+                        "value": "None"
+                    }
+                ]
+            ],
+            "practicedata": [
+                true,
+                true,
+                "3",
+                "2",
+                false,
+                true,
+                "2",
+                true,
+                false,
+                "1"
+            ]
+        }
+    },
+    "AcceptTime": "2017-03-26T04:25:24Z",
+    "HITId": "3P0I4CQYVY7LFRUMOCAAPXF9HNLWO9",
+    "Assignment": "",
+    "AssignmentStatus": "Approved",
+    "SubmitTime": "2017-03-26T04:40:10Z"
+}

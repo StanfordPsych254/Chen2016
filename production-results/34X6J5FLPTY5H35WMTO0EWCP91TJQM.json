@@ -1,0 +1,174 @@
+{
+    "ApprovalTime": "2017-03-26T05:06:16Z",
+    "AutoApprovalTime": "2017-03-26T05:06:15Z",
+    "AssignmentId": "34X6J5FLPTY5H35WMTO0EWCP91TJQM",
+    "WorkerId": "A25D66AC4QUW2U",
+    "answers": {
+        "data": {
+            "ids_causaldata": [
+                "strengths0causalRelations15",
+                "strengths1causalRelations15"
+            ],
+            "causaldata": [
+                "Goals for Personal Life",
+                "Intelligence Level",
+                "Goals for Personal Life",
+                "Goals for Personal Life",
+                "Favorite Hobbies/Activities",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Favorite Hobbies/Activities",
+                "Favorite Hobbies/Activities",
+                "Goals for Personal Life",
+                "Knowledge of Math",
+                "Goals for Personal Life",
+                "Memories of Important Life Milestones",
+                "Level of Wholesomeness",
+                "Goals for Personal Life",
+                "pass",
+                "pass",
+                "Goals for Personal Life",
+                "Intelligence Level",
+                "Goals for Personal Life"
+            ],
+            "phase_order": [
+                "MapFirst",
+                "ChangeFirst"
+            ],
+            "phase_order_temp": [],
+            "causaldata_strengths": [
+                "2",
+                "2",
+                "1",
+                "2",
+                "2",
+                "3",
+                "3",
+                "1",
+                "3",
+                "2",
+                "3",
+                "2",
+                "3",
+                "2",
+                "2",
+                "NA",
+                "NA",
+                "2",
+                "1",
+                "2"
+            ],
+            "identitydata": [
+                "78",
+                "92",
+                "77",
+                "89",
+                "93",
+                "87",
+                "97",
+                "93",
+                "77",
+                "76",
+                "85",
+                "84",
+                "80",
+                "72",
+                "96",
+                "68"
+            ],
+            "tempcausaldata": [
+                "Intelligence Level",
+                "Goals for Personal Life"
+            ],
+            "temptarget": [
+                "Level of Hunger"
+            ],
+            "order_causaltask": [],
+            "causaltargets": [
+                "Favorite Hobbies/Activities",
+                "Knowledge of Math",
+                "Degree of Shyness",
+                "Height",
+                "Aesthetic Preferences",
+                "Memories of Important Life Milestones",
+                "Important Childhood Memories",
+                "Goals for Personal Life",
+                "Knowledge of Music",
+                "Level of Honesty",
+                "Intelligence Level",
+                "Intelligence Level",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Reliability",
+                "Level of Wholesomeness",
+                "attention_check",
+                "attention_check",
+                "Level of Loyalty",
+                "Level of Hunger",
+                "Level of Hunger"
+            ],
+            "order_identitytask": [
+                "Level of Hunger",
+                "Reliability",
+                "Degree of Shyness",
+                "Knowledge of Math",
+                "Intelligence Level",
+                "Height",
+                "Level of Wholesomeness",
+                "Goals for Personal Life",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Favorite Hobbies/Activities",
+                "Level of Loyalty",
+                "Aesthetic Preferences",
+                "Knowledge of Music",
+                "Memories of Important Life Milestones",
+                "Level of Honesty",
+                "Important Childhood Memories"
+            ],
+            "demographics": [
+                [
+                    {
+                        "name": "Age",
+                        "value": "58"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "English"
+                    },
+                    {
+                        "name": "Ethnicity",
+                        "value": "asian"
+                    },
+                    {
+                        "name": "Gender",
+                        "value": "female"
+                    },
+                    {
+                        "name": "Browser",
+                        "value": "chrome"
+                    },
+                    {
+                        "name": "Issues",
+                        "value": "no"
+                    }
+                ]
+            ],
+            "practicedata": [
+                true,
+                true,
+                "2",
+                "2",
+                false,
+                true,
+                "3",
+                true,
+                false,
+                "2"
+            ]
+        }
+    },
+    "AcceptTime": "2017-03-26T04:26:13Z",
+    "HITId": "3P0I4CQYVY7LFRUMOCAAPXF9HNLWO9",
+    "Assignment": "",
+    "AssignmentStatus": "Approved",
+    "SubmitTime": "2017-03-26T05:01:15Z"
+}

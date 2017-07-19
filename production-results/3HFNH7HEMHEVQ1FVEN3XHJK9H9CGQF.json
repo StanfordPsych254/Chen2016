@@ -1,0 +1,219 @@
+{
+    "ApprovalTime": "2017-03-26T04:55:16Z",
+    "AutoApprovalTime": "2017-03-26T04:54:18Z",
+    "AssignmentId": "3HFNH7HEMHEVQ1FVEN3XHJK9H9CGQF",
+    "WorkerId": "A1UL0HQUZQPMSX",
+    "answers": {
+        "data": {
+            "ids_causaldata": [
+                "strengths0causalRelations15",
+                "strengths1causalRelations15"
+            ],
+            "causaldata": [
+                "Height",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Reliability",
+                "Level of Honesty",
+                "Goals for Personal Life",
+                "Intelligence Level",
+                "fail",
+                "fail",
+                "Intelligence Level",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "fail",
+                "fail",
+                "Level of Honesty",
+                "Level of Hunger",
+                "Aesthetic Preferences",
+                "Level of Loyalty",
+                "Level of Honesty",
+                "Height",
+                "Aesthetic Preferences",
+                "Aesthetic Preferences",
+                "Reliability",
+                "Important Childhood Memories",
+                "Goals for Personal Life",
+                "Height",
+                "Aesthetic Preferences",
+                "Aesthetic Preferences",
+                "Reliability",
+                "Memories of Important Life Milestones",
+                "Important Childhood Memories",
+                "Aesthetic Preferences",
+                "Reliability",
+                "Reliability",
+                "Level of Honesty",
+                "Aesthetic Preferences",
+                "Reliability"
+            ],
+            "phase_order": [
+                "ChangeFirst",
+                "MapFirst"
+            ],
+            "phase_order_temp": [],
+            "causaldata_strengths": [
+                "1",
+                "0",
+                "1",
+                "0",
+                "1",
+                "0",
+                "NA",
+                "NA",
+                "1",
+                "2",
+                "NA",
+                "NA",
+                "1",
+                "1",
+                "2",
+                "1",
+                "2",
+                "2",
+                "1",
+                "2",
+                "1",
+                "2",
+                "1",
+                "2",
+                "1",
+                "1",
+                "2",
+                "2",
+                "1",
+                "1",
+                "2",
+                "2",
+                "1",
+                "2",
+                "1"
+            ],
+            "identitydata": [
+                "73",
+                "37",
+                "63",
+                "72",
+                "65",
+                "76",
+                "65",
+                "83",
+                "73",
+                "34",
+                "76",
+                "69",
+                "80",
+                "66",
+                "35",
+                "79"
+            ],
+            "tempcausaldata": [
+                "Aesthetic Preferences",
+                "Reliability"
+            ],
+            "temptarget": [
+                "Memories of Important Life Milestones"
+            ],
+            "order_causaltask": [],
+            "causaltargets": [
+                "Knowledge of Math",
+                "Knowledge of Math",
+                "Important Childhood Memories",
+                "Important Childhood Memories",
+                "Level of Honesty",
+                "Level of Honesty",
+                "attention_check",
+                "attention_check",
+                "Aesthetic Preferences",
+                "Aesthetic Preferences",
+                "attention_check",
+                "attention_check",
+                "Level of Wholesomeness",
+                "Level of Wholesomeness",
+                "Reliability",
+                "Reliability",
+                "Level of Loyalty",
+                "Goals for Personal Life",
+                "Goals for Personal Life",
+                "Knowledge of Music",
+                "Knowledge of Music",
+                "Intelligence Level",
+                "Intelligence Level",
+                "Degree of Shyness",
+                "Degree of Shyness",
+                "Favorite Hobbies/Activities",
+                "Favorite Hobbies/Activities",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Level of Hunger",
+                "Level of Hunger",
+                "Height",
+                "Height",
+                "Memories of Important Life Milestones",
+                "Memories of Important Life Milestones"
+            ],
+            "order_identitytask": [
+                "Level of Wholesomeness",
+                "Height",
+                "Aesthetic Preferences",
+                "Reliability",
+                "Level of Honesty",
+                "Memories of Important Life Milestones",
+                "Important Childhood Memories",
+                "Goals for Personal Life",
+                "Intelligence Level",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Degree of Shyness",
+                "Level of Hunger",
+                "Level of Loyalty",
+                "Knowledge of Music",
+                "Favorite Hobbies/Activities",
+                "Knowledge of Math"
+            ],
+            "demographics": [
+                [
+                    {
+                        "name": "Age",
+                        "value": "24"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "english"
+                    },
+                    {
+                        "name": "Ethnicity",
+                        "value": "white"
+                    },
+                    {
+                        "name": "Gender",
+                        "value": "male"
+                    },
+                    {
+                        "name": "Browser",
+                        "value": "firefox"
+                    },
+                    {
+                        "name": "Issues",
+                        "value": "no"
+                    }
+                ]
+            ],
+            "practicedata": [
+                false,
+                true,
+                "2",
+                "1",
+                false,
+                false,
+                "1",
+                false,
+                true,
+                "2"
+            ]
+        }
+    },
+    "AcceptTime": "2017-03-26T04:26:11Z",
+    "HITId": "3P0I4CQYVY7LFRUMOCAAPXF9HNLWO9",
+    "Assignment": "",
+    "AssignmentStatus": "Approved",
+    "SubmitTime": "2017-03-26T04:49:18Z"
+}

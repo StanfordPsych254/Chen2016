@@ -1,0 +1,174 @@
+{
+    "ApprovalTime": "2017-03-26T05:41:16Z",
+    "AutoApprovalTime": "2017-03-26T05:40:24Z",
+    "AssignmentId": "3VJ40NV2QINWAUOLJAA0RX4YS22TOT",
+    "WorkerId": "AYB94YAV7HU9T",
+    "answers": {
+        "data": {
+            "ids_causaldata": [
+                "strengths0causalRelations14"
+            ],
+            "causaldata": [
+                "Knowledge of Math",
+                "Intelligence Level",
+                "Memories of Important Life Milestones",
+                "Reliability",
+                "Knowledge of Music",
+                "pass",
+                "none",
+                "Intelligence Level",
+                "Favorite Hobbies/Activities",
+                "Intelligence Level",
+                "Goals for Personal Life",
+                "Knowledge of Math",
+                "Goals for Personal Life",
+                "Knowledge of Music",
+                "Memories of Important Life Milestones",
+                "none",
+                "none",
+                "none",
+                "Memories of Important Life Milestones",
+                "Memories of Important Life Milestones",
+                "pass"
+            ],
+            "phase_order": [
+                "ChangeFirst",
+                "MapFirst"
+            ],
+            "phase_order_temp": [],
+            "causaldata_strengths": [
+                "3",
+                "3",
+                "3",
+                "3",
+                "3",
+                "NA",
+                "0",
+                "3",
+                "2",
+                "3",
+                "2",
+                "3",
+                "3",
+                "3",
+                "3",
+                "0",
+                "0",
+                "0",
+                "3",
+                "3",
+                "NA"
+            ],
+            "identitydata": [
+                "93",
+                "71",
+                "88",
+                "95",
+                "87",
+                "69",
+                "75",
+                "100",
+                "0",
+                "100",
+                "100",
+                "100",
+                "100",
+                "100",
+                "100",
+                "100"
+            ],
+            "tempcausaldata": [],
+            "temptarget": [
+                "Knowledge of Music",
+                "attncheck1"
+            ],
+            "order_causaltask": [],
+            "causaltargets": [
+                "Level of Honesty",
+                "Level of Honesty",
+                "Goals for Personal Life",
+                "Level of Loyalty",
+                "Favorite Hobbies/Activities",
+                "attention_check",
+                "Level of Hunger",
+                "Knowledge of Math",
+                "Height",
+                "Reliability",
+                "Aesthetic Preferences",
+                "Intelligence Level",
+                "Intelligence Level",
+                "Intelligence Level",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Degree of Shyness",
+                "Level of Wholesomeness",
+                "Memories of Important Life Milestones",
+                "Important Childhood Memories",
+                "Knowledge of Music",
+                "attention_check"
+            ],
+            "order_identitytask": [
+                "Knowledge of Math",
+                "Intelligence Level",
+                "Reliability",
+                "Important Childhood Memories",
+                "Height",
+                "Level of Hunger",
+                "Level of Wholesomeness",
+                "Goals for Personal Life",
+                "Degree of Shyness",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Knowledge of Music",
+                "Favorite Hobbies/Activities",
+                "Level of Honesty",
+                "Level of Loyalty",
+                "Aesthetic Preferences",
+                "Memories of Important Life Milestones"
+            ],
+            "demographics": [
+                [
+                    {
+                        "name": "Age",
+                        "value": "30"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "ENGLISH"
+                    },
+                    {
+                        "name": "Ethnicity",
+                        "value": "white"
+                    },
+                    {
+                        "name": "Gender",
+                        "value": "male"
+                    },
+                    {
+                        "name": "Browser",
+                        "value": "CHROME"
+                    },
+                    {
+                        "name": "Issues",
+                        "value": ""
+                    }
+                ]
+            ],
+            "practicedata": [
+                true,
+                false,
+                "2",
+                "2",
+                true,
+                true,
+                "3",
+                false,
+                true,
+                "3"
+            ]
+        }
+    },
+    "AcceptTime": "2017-03-26T04:39:27Z",
+    "HITId": "3P0I4CQYVY7LFRUMOCAAPXF9HNLWO9",
+    "Assignment": "",
+    "AssignmentStatus": "Approved",
+    "SubmitTime": "2017-03-26T05:35:24Z"
+}

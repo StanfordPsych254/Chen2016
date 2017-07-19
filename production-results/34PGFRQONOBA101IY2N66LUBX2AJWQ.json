@@ -1,0 +1,162 @@
+{
+    "ApprovalTime": "2017-03-26T04:36:16Z",
+    "AutoApprovalTime": "2017-03-26T04:36:08Z",
+    "AssignmentId": "34PGFRQONOBA101IY2N66LUBX2AJWQ",
+    "WorkerId": "A18T7E73TNGOKP",
+    "answers": {
+        "data": {
+            "ids_causaldata": [],
+            "causaldata": [
+                "none",
+                "fail",
+                "fail",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none",
+                "none"
+            ],
+            "phase_order": [
+                "MapFirst",
+                "ChangeFirst"
+            ],
+            "phase_order_temp": [],
+            "causaldata_strengths": [
+                "0",
+                "NA",
+                "NA",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+            ],
+            "identitydata": [
+                "41",
+                "54",
+                "40",
+                "45",
+                "57",
+                "94",
+                "60",
+                "90",
+                "55",
+                "17",
+                "40",
+                "30",
+                "26",
+                "21",
+                "89",
+                "78"
+            ],
+            "tempcausaldata": [],
+            "temptarget": [
+                "Aesthetic Preferences"
+            ],
+            "order_causaltask": [],
+            "causaltargets": [
+                "Degree of Shyness",
+                "attention_check",
+                "attention_check",
+                "Knowledge of Music",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Level of Wholesomeness",
+                "Height",
+                "Favorite Hobbies/Activities",
+                "Level of Hunger",
+                "Goals for Personal Life",
+                "Knowledge of Math",
+                "Level of Honesty",
+                "Intelligence Level",
+                "Reliability",
+                "Important Childhood Memories",
+                "Memories of Important Life Milestones",
+                "Level of Loyalty",
+                "Aesthetic Preferences"
+            ],
+            "order_identitytask": [
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Favorite Hobbies/Activities",
+                "Important Childhood Memories",
+                "Goals for Personal Life",
+                "Level of Loyalty",
+                "Knowledge of Music",
+                "Memories of Important Life Milestones",
+                "Level of Honesty",
+                "Aesthetic Preferences",
+                "Knowledge of Math",
+                "Height",
+                "Reliability",
+                "Degree of Shyness",
+                "Level of Hunger",
+                "Intelligence Level",
+                "Level of Wholesomeness"
+            ],
+            "demographics": [
+                [
+                    {
+                        "name": "Age",
+                        "value": "32"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "english"
+                    },
+                    {
+                        "name": "Ethnicity",
+                        "value": "white"
+                    },
+                    {
+                        "name": "Gender",
+                        "value": "male"
+                    },
+                    {
+                        "name": "Browser",
+                        "value": "firefox"
+                    },
+                    {
+                        "name": "Issues",
+                        "value": "no"
+                    }
+                ]
+            ],
+            "practicedata": [
+                false,
+                true,
+                "2",
+                "2",
+                false,
+                false,
+                "2",
+                true,
+                true,
+                "3"
+            ]
+        }
+    },
+    "AcceptTime": "2017-03-26T04:27:12Z",
+    "HITId": "3P0I4CQYVY7LFRUMOCAAPXF9HNLWO9",
+    "Assignment": "",
+    "AssignmentStatus": "Approved",
+    "SubmitTime": "2017-03-26T04:31:08Z"
+}

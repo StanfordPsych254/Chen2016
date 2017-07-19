@@ -1,0 +1,187 @@
+{
+    "ApprovalTime": "2017-03-26T05:40:16Z",
+    "AutoApprovalTime": "2017-03-26T05:40:01Z",
+    "AssignmentId": "3QBD8R3Z21JCT99V499SJPS6C3Q4OD",
+    "WorkerId": "A2A96OIJVXFUTG",
+    "answers": {
+        "data": {
+            "ids_causaldata": [
+                "strengths0causalRelations15"
+            ],
+            "causaldata": [
+                "Level of Loyalty",
+                "Level of Honesty",
+                "Goals for Personal Life",
+                "Knowledge of Music",
+                "Aesthetic Preferences",
+                "Intelligence Level",
+                "none",
+                "pass",
+                "none",
+                "Favorite Hobbies/Activities",
+                "pass",
+                "none",
+                "Reliability",
+                "Level of Honesty",
+                "none",
+                "none",
+                "Important Childhood Memories",
+                "Goals for Personal Life",
+                "Knowledge of Math",
+                "Important Childhood Memories",
+                "Favorite Hobbies/Activities",
+                "Important Childhood Memories",
+                "Level of Loyalty",
+                "Reliability",
+                "Cherished Memories of Time Spent with Parents/Family"
+            ],
+            "phase_order": [
+                "ChangeFirst",
+                "MapFirst"
+            ],
+            "phase_order_temp": [],
+            "causaldata_strengths": [
+                "2",
+                "1",
+                "2",
+                "3",
+                "2",
+                "1",
+                "0",
+                "NA",
+                "0",
+                "2",
+                "NA",
+                "0",
+                "2",
+                "2",
+                "0",
+                "0",
+                "3",
+                "2",
+                "1",
+                "3",
+                "1",
+                "2",
+                "3",
+                "3",
+                "2"
+            ],
+            "identitydata": [
+                "97",
+                "6",
+                "73",
+                "67",
+                "11",
+                "91",
+                "71",
+                "46",
+                "61",
+                "1",
+                "46",
+                "62",
+                "63",
+                "75",
+                "70",
+                "93"
+            ],
+            "tempcausaldata": [
+                "Cherished Memories of Time Spent with Parents/Family"
+            ],
+            "temptarget": [
+                "Important Childhood Memories"
+            ],
+            "order_causaltask": [],
+            "causaltargets": [
+                "Reliability",
+                "Reliability",
+                "Favorite Hobbies/Activities",
+                "Favorite Hobbies/Activities",
+                "Favorite Hobbies/Activities",
+                "Knowledge of Math",
+                "Level of Wholesomeness",
+                "attention_check",
+                "Height",
+                "Aesthetic Preferences",
+                "attention_check",
+                "Goals for Personal Life",
+                "Level of Loyalty",
+                "Level of Loyalty",
+                "Level of Hunger",
+                "Knowledge of Music",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Intelligence Level",
+                "Intelligence Level",
+                "Degree of Shyness",
+                "Degree of Shyness",
+                "Memories of Important Life Milestones",
+                "Level of Honesty",
+                "Level of Honesty",
+                "Important Childhood Memories"
+            ],
+            "order_identitytask": [
+                "Goals for Personal Life",
+                "Height",
+                "Level of Loyalty",
+                "Reliability",
+                "Knowledge of Math",
+                "Level of Honesty",
+                "Intelligence Level",
+                "Cherished Memories of Time Spent with Parents/Family",
+                "Important Childhood Memories",
+                "Level of Hunger",
+                "Level of Wholesomeness",
+                "Knowledge of Music",
+                "Memories of Important Life Milestones",
+                "Favorite Hobbies/Activities",
+                "Aesthetic Preferences",
+                "Degree of Shyness"
+            ],
+            "demographics": [
+                [
+                    {
+                        "name": "Age",
+                        "value": "26"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "English"
+                    },
+                    {
+                        "name": "Ethnicity",
+                        "value": "white"
+                    },
+                    {
+                        "name": "Gender",
+                        "value": "male"
+                    },
+                    {
+                        "name": "Browser",
+                        "value": "Chrome"
+                    },
+                    {
+                        "name": "Issues",
+                        "value": "No"
+                    }
+                ]
+            ],
+            "practicedata": [
+                true,
+                true,
+                "3",
+                "2",
+                false,
+                true,
+                "2",
+                false,
+                false,
+                "1"
+            ]
+        }
+    },
+    "AcceptTime": "2017-03-26T05:27:12Z",
+    "HITId": "3P0I4CQYVY7LFRUMOCAAPXF9HNLWO9",
+    "Assignment": "",
+    "AssignmentStatus": "Approved",
+    "SubmitTime": "2017-03-26T05:35:01Z"
+}
